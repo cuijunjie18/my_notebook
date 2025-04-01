@@ -2,11 +2,13 @@
 
 **author : cuijunjie18**
 
-![初音未来](images/blue_girl.png)
+![初音未来](background/blue_girl.png)
 
 #### 目录
 
-- uv配置
+- uv配置            last update_date : Apr,1 02025
+- clangd配置        last update_date : Apr,1 02025
+- ssh               last update_date : Apr,1 02025
 
 
 #### 后话
