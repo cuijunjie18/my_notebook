@@ -147,6 +147,17 @@ zsh、bash等是一种命令行解释器(shell)，一句话就是解析命令行
   ```shell
   # 无需安装，oh-my-zsh中内置的
   ```
+使用的话，直接在~/.zshrc中加入以下代码即可
+
+```vim
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    z
+)
+
+```
 
 #### 后续
 
