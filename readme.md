@@ -10,7 +10,7 @@
 - **clangd配置**    &emsp;&emsp;&emsp;    last update_date : Apr,1 2025
 - **ssh**            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   last update_date : Apr,6 2025
 - **input_method**  &emsp; &emsp; 状态：未完成 
-- **vim配置与技巧**   &emsp;&emsp; &emsp;状态：未完成
+- **vim配置与技巧**   &emsp;&emsp; &emsp;     last update_date : Apr,10 2025
 
 - **git使用指南** &emsp;&emsp; &emsp;&emsp; 状态：未完成
 - **zsh配置**     &emsp;&emsp;&emsp;&emsp;&emsp; last update_date : Apr,6 2025

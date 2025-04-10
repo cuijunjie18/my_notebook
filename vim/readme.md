@@ -100,6 +100,20 @@
     或者<crtl+shift+v> #我的ubuntu可以
     ```
 
+- vim 批量替换字符串
+  - 全局替换
+    ```vim
+    :%s/word1/word2/g
+    ```
+    如果是转义字符，需要加\。例如，全局将'\'替换为'/'，使用以下命令
+    ```vim
+    :%s/\\/\//g
+    ```
+  - 部分替换
+    ```vim
+    n1,n2s/word1/word2/g
+    ```
+
 - 推荐一篇文章
     https://www.cnblogs.com/gmpy/p/11177719.html
 
