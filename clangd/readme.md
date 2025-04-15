@@ -42,6 +42,12 @@ clangd官网 : https://clangd.llvm.org/
 
 指定了头文件的搜索路径，那么我们就可以在写代码时享受快速且精准的代码补全了，让我们和warning与errors说goodbye！
 
+#### ROS2的工程项目colcon build使用clangd
 
+直接在命令行使用指令
+
+```shell
+cb --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+```
 
 
