@@ -137,3 +137,11 @@ explicit = true
         pyhton <.py>
     ```
 
+#### 补充内容
+
+参考wzx学长的ICT笔记
+
+https://www.notion.so/ICT-COMP-NOTES-1b3b46473910805c9ea6d29c605bbb50?pvs=4
+
+**防止丢失https://www.notion.so/ICT-COMP-NOTES-1de8323c2e1d8050aabdf46ca63be401**
+

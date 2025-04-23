@@ -6,7 +6,7 @@
 
 #### 目录
 
-- **uv配置**        &emsp;&emsp;&emsp;&emsp;&emsp;    last update_date : Apr,4 2025
+- **uv配置**        &emsp;&emsp;&emsp;&emsp;&emsp;    last update_date : Apr,23 2025
 - **clangd配置**    &emsp;&emsp;&emsp;    last update_date : Apr,1 2025
 - **ssh**            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   last update_date : Apr,6 2025
 - **input_method**  &emsp; &emsp; 状态：未完成 
@@ -14,6 +14,7 @@
 
 - **git使用指南** &emsp;&emsp; &emsp;&emsp; 状态：未完成
 - **zsh配置**     &emsp;&emsp;&emsp;&emsp;&emsp; last update_date : Apr,6 2025
+- **conda配置** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Apr,23 2025
 
 #### 后话
 
