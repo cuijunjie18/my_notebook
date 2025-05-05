@@ -16,6 +16,7 @@
 - **zsh配置**     &emsp;&emsp;&emsp;&emsp;&emsp; last update_date : Apr,6 2025
 - **conda配置** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Apr,23 2025
 - **zellij使用** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Apr,25 2025
+- **ln使用** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Apr,25 2025
 
 #### 后话
 
