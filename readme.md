@@ -12,7 +12,7 @@
 - **input_method**  &emsp; &emsp; 状态：未完成 
 - **vim配置与技巧**   &emsp;&emsp; &emsp;     last update_date : Apr,10 2025
 
-- **git使用指南** &emsp;&emsp; &emsp;&emsp; 状态：未完成
+- **git使用指南** &emsp;&emsp; &emsp;&emsp; 状态：May,21 2025
 - **zsh配置**     &emsp;&emsp;&emsp;&emsp;&emsp; last update_date : Apr,6 2025
 - **conda配置** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Apr,23 2025
 - **zellij使用** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Apr,25 2025

@@ -1,5 +1,9 @@
 ### git 使用指南
 
+#### 背景
+
+由于常用功能较为简单，仅记录最近新功能
+
 #### stash
 
 ```shell
@@ -13,4 +17,12 @@ git stash pop # 回到之前保存的工作状态
 git clone <url>
 git branch --all
 git switch -c <local_branch> <remote_branch>
+```
+
+#### clone
+
+当远程仓库的history过于庞大时，可以指定clone包含的history次数
+
+```shell
+git clone --depth <n> <repository-url>
 ```
