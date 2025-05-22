@@ -115,6 +115,12 @@ bash Anaconda3-2024.06-1-Linux-x86_64.sh
   conda create --name <venv_name> python=3.x
   ```
 
+- 删除虚拟环境
+  ```shell
+  conda env remove --name <venv_name>
+  # conda remove --name <venv_name> -all
+  ```
+
 - 查看虚拟环境列表
   ```shell
   conda env list
