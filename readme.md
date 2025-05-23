@@ -15,7 +15,7 @@
 - **git使用指南** &emsp;&emsp; &emsp;&emsp; 状态：May,21 2025
 - **zsh配置**     &emsp;&emsp;&emsp;&emsp;&emsp; last update_date : Apr,6 2025
 - **conda配置** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : May,22 2025
-- **zellij使用** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Apr,25 2025
+- **zellij使用** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : May,23 2025
 - **ln使用** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Apr,25 2025
 
 #### 后话

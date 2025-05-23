@@ -53,4 +53,10 @@
   zellij k <session_name>
   # zellij kill-session <session_name>
   ```
-
+- 恢复某个会话
+  ```shell
+  # 搭配使用
+  zellij -s <session_name>
+  zellij ls # 先查看会话
+  zellij attach <session_name> # 如果直接zellij则随机名字
+  ```
