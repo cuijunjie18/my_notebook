@@ -26,3 +26,15 @@ git switch -c <local_branch> <remote_branch>
 ```shell
 git clone --depth <n> <repository-url>
 ```
+
+#### .gitignore
+
+当我们追踪了一次文件，或者叫提交了一次未被ignore的文件后，再在.gitignore文件里忽略它，这时候是不起作用的
+
+我们需要运行下面的命令
+
+```shell
+git rm --cache filename
+```
+
+然后再提交，，就会发现不再追踪该文件.
