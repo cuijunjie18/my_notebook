@@ -46,6 +46,11 @@ sudo vim system.conf
 ![](images/a.png)
 然后打开注释这两行的注释并修改时间即可.
 
+**补充**
+- 经实验，仅有修改为0s时才会立刻重启，否则都是采用1min30s等待
+- 建议不要使用立刻重启，可能会对系统造成损伤.~~血的教训，没关掉firefox立刻重启，firefox卡了几次~~
+
+
 #### Ubuntu系统内置时间
 
 有时候发现切换系统后Ubuntu的Auto time set不起作用，换一个wifi即可解决.
