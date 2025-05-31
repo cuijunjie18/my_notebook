@@ -19,3 +19,15 @@
     上图为fcitx5框架下的input-method-config界面.
 
 - **词库**
+
+#### 查看系统的中文字体
+
+```shell
+fc-list :lang=zh
+```
+
+也可以排序查看
+
+```shell
+fc-list :lang=zh | sort
+```
