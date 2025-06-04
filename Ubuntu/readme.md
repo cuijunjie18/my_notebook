@@ -1,10 +1,10 @@
-### Ubuntu系统的一些常见修改及配置
+## Ubuntu系统的一些常见修改及配置
 
-#### 背景
+### 背景
 
 如遇到重装Ubuntu系统，可能会有一些之前的配置忘记，故在此使用笔记的形式记录
 
-#### 更换系统apt源
+### 更换系统apt源
 
 使用清华源：https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
 
@@ -34,7 +34,50 @@ deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe m
 # # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
 ```
 
-#### 设置系统restart等待时间
+### Ubuntu用户管理
+
+- 新建用户
+  ```shell
+  sudo useradd -m <username> # -m 同时初始化家目录
+  ```
+  设置密码
+  ```shell
+  sudo passwd <username>
+  ```
+  验证用户信息
+  ```shell
+  id <username>
+  grep <username> /etc/passwd
+  ```
+  切换用户
+  ```shell
+  su cjj # 输入密码即可
+  # 如果Authentication failure
+  sudo su cjj
+  ```
+
+- 添加sudo权限
+  ```shell
+  sudo usermod -aG sudo cjj
+  ```
+
+- 改变用户默认SHELL
+  ```shell
+  chsh # 如果这个没用
+  sudo chsh -s /bin/bash cjj
+  ```
+
+- 查看全部用户信息
+  ```shell
+  sudo vim /etc/passwd
+  ```
+
+- 查看用户组信息
+  ```shell
+  vim /etc/group
+  ```
+
+### 设置系统restart等待时间
 
 Ubuntu restart默认时间是**1min30s**，有时候我们需要频繁切换系统，这会给我们带来不必要的时间消耗，我们可以执行下面的操作来修改默认的重启等待时间.
 
@@ -51,6 +94,6 @@ sudo vim system.conf
 - 建议不要使用立刻重启，可能会对系统造成损伤.~~血的教训，没关掉firefox立刻重启，firefox卡了几次~~
 
 
-#### Ubuntu系统内置时间
+### Ubuntu系统内置时间
 
 有时候发现切换系统后Ubuntu的Auto time set不起作用，换一个wifi即可解决.

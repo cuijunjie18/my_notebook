@@ -17,7 +17,7 @@
 - **conda配置** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : May,22 2025
 - **zellij使用** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : May,23 2025
 - **ln使用** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Apr,25 2025
-- **Ubuntu系统配置** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : May,30 2025
+- **Ubuntu系统配置** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jun,4 2025
 - **re使用(正则表达式)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : May,31 2025
 - **plt使用** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jun,3 2025
 
