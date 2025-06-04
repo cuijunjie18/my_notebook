@@ -1,6 +1,6 @@
-### zsh配置
+## zsh配置
 
-#### 背景
+### 背景
 
 还在用不可拓展的bash吗?不如尝试高度可定制化的zsh吧!
 
@@ -8,13 +8,15 @@
 
 zsh、bash等是一种命令行解释器(shell)，一句话就是解析命令行指令的.(注意不要和终端的概念搞混了，terminal是一种输入输出环境).
 
-#### zsh安装
+### zsh安装
 
 - 先安装zsh本体
   
   ```shell
   sudo apt-get install zsh
   ```
+
+  也可以直接下载二进制可执行文件：https://github.com/cuijunjie18/my_notebook/releases/tag/zsh-v0.1
   
     输入命令查看当前安装的shell
   
@@ -54,7 +56,7 @@ zsh、bash等是一种命令行解释器(shell)，一句话就是解析命令行
   # 输出为/usr/bin//zsh即可
   ```
 
-#### oh-my-zsh安装
+### oh-my-zsh安装
 
 官网：https://github.com/ohmyzsh/ohmyzsh
 
@@ -91,7 +93,7 @@ zsh、bash等是一种命令行解释器(shell)，一句话就是解析命令行
   其中的themes与plugins为oh-my-zsh的主题与插件，cusstom中的为附加的支持oh-my-zsh调用的主题与插件.  
   我们在~/.zshrc里可以进行选择.
 
-#### p10k主题安装
+### p10k主题安装
 
 在安装了oh-my-zsh后，我们会发现内置的主题过于单一或者没有自己喜欢的，这里我推荐一个主题powerlevel10k，简称p10k.
 
@@ -139,7 +141,7 @@ zsh、bash等是一种命令行解释器(shell)，一句话就是解析命令行
   
   即可重新配置.
 
-#### 拓展插件安装
+### 拓展插件安装
 
 虽然.oh-my-zsh中有内置的插件，但是肯定满足不了我们的需求，于是我们要安装拓展插件.
 
@@ -179,7 +181,7 @@ plugins=(
 )
 ```
 
-#### 易出问题的地方
+### 易出问题的地方
 
 - **切换zsh后环境缺失**
   Linux初学者可能不太熟悉.bashrc与.zshrc等配置文件的工作方式，导致将zsh设置为默认shell后之前在bash中的环境配置没有继承到zsh中，那么有以下两种解决方法.
@@ -194,6 +196,6 @@ plugins=(
     
   即可在bashrc中继承环境变量，不过此时的默认shell要是bash，只是通过~/.bashrc切换到zsh而已，且运行bash指令无法回到bash.需谨慎使用.
 
-#### 后续
+### 后续
 
 有错误的地方或需要补充的地方，欢迎提issue.
