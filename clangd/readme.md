@@ -1,8 +1,8 @@
-### clangd : vscode中更好用的自动补全
+## clangd : vscode中更好用的自动补全
 
 clangd官网 : https://clangd.llvm.org/
 
-#### clangd安装
+### clangd安装
 
 - 本地软件包安装
     ```shell
@@ -17,7 +17,7 @@ clangd官网 : https://clangd.llvm.org/
     
     ![alt text](images/b.png)
 
-#### clangd使用
+### clangd使用
 
 - CMakeLists.txt编译产生(在CMakeLists.txt前加入)
     ```cmake
@@ -42,7 +42,7 @@ clangd官网 : https://clangd.llvm.org/
 
 指定了头文件的搜索路径，那么我们就可以在写代码时享受快速且精准的代码补全了，让我们和warning与errors说goodbye！
 
-#### ROS2的工程项目colcon build使用clangd
+### ROS2的工程项目colcon build使用clangd
 
 直接在命令行使用指令
 

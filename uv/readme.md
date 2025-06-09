@@ -1,8 +1,8 @@
-### uv : 轻量化的python包管理器
+## uv : 轻量化的python包管理器
 
 uv官方网址：https://docs.astral.sh/uv/
 
-#### 下载
+### 下载
 
 以下2条指令均可
 
@@ -21,7 +21,7 @@ wget -qO- https://astral.sh/uv/install.sh | sh
 
 即可输入uv使用
 
-#### uv使用
+### uv使用
 
 **以下是我个人的常用用法，仅供参考**
 
@@ -87,7 +87,7 @@ explicit = true
     uv add torch --index pytorch=https://download.pytorch.org/whl/cpu # 就会在pyproject.toml文件产生对应的source与index
 ```
 
-#### uv的环境在vscode的jupyter中无法找到
+### uv的环境在vscode的jupyter中无法找到
 
 <strong>我要的uv环境：/home/cjj/uv_env/d2l/.venv/bin/python3</strong>
 
@@ -113,7 +113,7 @@ explicit = true
   **然后就可以在.py和.ipynb使用指定的uv环境了!**
 
 
-#### 其他
+### 其他
 
 - uv init会采用默认的python版本，可以通过下面命令转化
     ```shell
@@ -137,7 +137,7 @@ explicit = true
         pyhton <.py>
     ```
 
-#### 补充内容
+### 补充内容
 
 参考wzx学长的ICT笔记
 

@@ -1,6 +1,6 @@
-### vim配置与技巧
+## vim配置与技巧
 
-#### vim配置文件
+### vim配置文件
 
 - 查看vim配置文件出现的位置
     ```shell
@@ -52,7 +52,7 @@
     autocmd FileType python,javascript,cpp,c inoremap   ' ''<Left>
     ```
 
-#### vim使用技巧
+### vim使用技巧
 
 - visual模式下将内容复制到系统粘贴板
   **查看是否可以使用系统粘贴板**
@@ -117,7 +117,7 @@
 - 推荐一篇文章
     https://www.cnblogs.com/gmpy/p/11177719.html
 
-#### 后话
+### 后话
 
 vim的内容还有很多，后续会更新.
 
