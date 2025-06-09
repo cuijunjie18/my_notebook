@@ -1,8 +1,13 @@
-### ssh : 远程连接、服务器搭建必备
+## ssh : 远程连接、服务器搭建必备
 
-openssh官网 : https://www.openssh.com/
+### 目录
 
-#### 背景
+[背景](#背景)
+[openssh安装与启动](#openssh安装与启动)
+[ssh的使用](#ssh的使用)
+[ssh转发代理](#ssh转发代理)
+
+### 背景
 
 要想使用ssh,需要先查看我们的系统是否有ssh服务了(通常情况是指开源的openssh软件包)  
 
@@ -17,9 +22,11 @@ dpkg -l | grep ssh
 
 如果openssh-client与openssh-server即可跳到[使用阶段](#ssh_use)，否则继续下面的[安装过程](#ssh_install).
 
-#### openssh安装与启动
+### openssh安装与启动
 
 <span id="ssh_install"></span>
+
+openssh官网 : https://www.openssh.com/
 
 通常来说，有openssh-client即可远程连接服务器，但是要有openssh-server才能让本机成为服务器.
 
@@ -85,14 +92,14 @@ dpkg -l | grep ssh
   
     得到结果显示enable即可.
 
-#### ssh的使用
+### ssh的使用
 
 <span id="ssh_use"></span>
 
 - 已知服务器ip及用户，直接连接
   
   ```shell
-    ssh -p <端口> username@<server_computer_ip> 
+  ssh -p <端口> username@<server_computer_ip> 
   ```
   
   提示输入密码即可连接.  
@@ -108,14 +115,21 @@ dpkg -l | grep ssh
   我们会在本地的 ~/.ssh下看到如下文件目录
   
   ```shell
-    ├── config
-    ├── id_rsa
-    ├── id_rsa.pub
-    ├── known_hosts
-    └── known_hosts.old
+  ├── config
+  ├── id_rsa
+  ├── id_rsa.pub
+  ├── known_hosts
+  └── known_hosts.old
   ```
   
-  其中，id_rsa即私钥、id_rsa.pub即公钥，我们将id_rsa.pub复制到服务器上的<strong>/home/user/.ssh/authorized_keys</strong>即可面密登陆.
+  其中，id_rsa即私钥、id_rsa.pub即公钥，我们将id_rsa.pub复制到服务器上的<strong>/home/user/.ssh/authorized_keys</strong>即可免密登陆.
+
+  或者直接在客户端执行下面的命令
+  ```shell
+  ssh-copy-id <user>@<server_ip>
+  # 或者 ssh-copy-id <Simple_Host>
+  # 提示再次输入密码即可
+  ```
   
   <br/>
 
@@ -124,26 +138,26 @@ dpkg -l | grep ssh
     该文件的内容如下
   
   ```shell
-    Host <name>
-        HostName <computer_ip>
-        Port <port_id>
-        User <user_name>
-        IdentityFile ~/.ssh/id_rsa
+  Host <name>
+      HostName <computer_ip>
+      Port <port_id>
+      User <user_name>
+      IdentityFile ~/.ssh/id_rsa
   ```
   
   配置了服务器的信息后，即可直接如下指令连接
   
   ```shell
-    ssh <name>
+  ssh <name>
   ```
 
-#### ssh转发代理
+### ssh转发代理
 
-##### 使用背景
+#### 使用背景
 
 当服务器上没有梯子的时候，我们客户端（即本地端）有梯子的时候，而我们又可以通过ssh远程连接服务器时，我们就可以通过转发代理来让远程服务器用上梯子.
 
-##### 查看端口
+#### 查看端口
 
 想要转发梯子服务，我们必然要查看客户端与服务端的端口信息，可以通过以下方式查看
 
@@ -167,7 +181,7 @@ ss -tnp | grep ssh
 
 ip冒号后面的即端口，状态为estab即为建立状态.
 
-##### 监听端口
+#### 监听端口
 
 直接使用nc指令即可
 
@@ -175,7 +189,7 @@ ip冒号后面的即端口，状态为estab即为建立状态.
 nc -lk <端口号>
 ```
 
-##### 代理转发
+#### 代理转发
 
 - 先查看本地梯子代理的端口
   进入clash verge查看代理的端口，如下
@@ -274,6 +288,6 @@ nc -lk <端口号>
   
     即**Proxy request sent**，即代理请求成功发送.
 
-#### 后记
+### 后记
 
 不足与代补充处欢迎提issue！
