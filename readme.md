@@ -19,7 +19,7 @@
 - **[Ubuntu系统配置](Ubuntu/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jun,4 2025
 - **[re使用(正则表达式)](re/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : May,31 2025
 - **[plt库使用](plt/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jun,3 2025
-- **[cmake使用](cmake/readme.md)**  &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jun,8 2025
+- **[cmake使用](cmake/readme.md)**  &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jun,9 2025
 
 ### 后话
 

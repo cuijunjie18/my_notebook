@@ -149,6 +149,14 @@ target_link_libraries(
 
 ### cmake杂技
 
+- 设置c++标准
+  
+    ```cmake
+    # 设置 C++ 标准
+    set(CMAKE_CXX_STANDARD 17)
+    set(CMAKE_CXX_STANDARD_REQUIRED ON)
+    ```
+
 - 设置变量
 
     ```cmake
