@@ -7,7 +7,7 @@
 ### 目录
 
 - **[uv配置](uv/readme.md)**        &emsp;&emsp;&emsp;&emsp;&emsp;    last update_date : Apr,23 2025
-- **[clangd配置](clangd/readme.md)**    &emsp;&emsp;&emsp;    last update_date : Apr,1 2025
+- **[clangd使用](clangd/readme.md)**    &emsp;&emsp;&emsp;    last update_date : Jun,10 2025
 - **[ssh](ssh/readme.md)**            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   last update_date : Jun,9 2025
 - **[input_method](input_method/readme.md)**  &emsp; &emsp; last update_date： May,31 2025
 - **[vim配置与技巧](vim/readme.md)**   &emsp;&emsp; &emsp;     last update_date : Apr,10 2025

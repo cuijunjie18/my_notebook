@@ -2,6 +2,13 @@
 
 clangd官网 : https://clangd.llvm.org/
 
+### 目录
+
+[clangd安装](#clangd安装)
+[clangd基于cmake-project的使用](#clangd基于cmake-project的使用)
+[clangd基于ros2-colcon build的使用](#ros2的工程项目colcon-build使用clangd)
+[]
+
 ### clangd安装
 
 - 本地软件包安装
@@ -17,7 +24,7 @@ clangd官网 : https://clangd.llvm.org/
     
     ![alt text](images/b.png)
 
-### clangd使用
+### clangd基于cmake-project的使用
 
 - CMakeLists.txt编译产生(在CMakeLists.txt前加入)
     ```cmake
@@ -50,4 +57,23 @@ clangd官网 : https://clangd.llvm.org/
 cb --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 ```
 
+### clangd基于make-project的使用
+
+对于使用makefile的项目，需要使用bear执行下面的指令来生成.json的编译数据库文件.
+
+```shell
+bear -- make
+```
+
+#### bear的安装
+
+bear官网：https://github.com/rizsotto/Bear
+
+Bear is packaged for many distributions. Check out your package manager. Or build it from source.
+
+而Linux已经有bear的软件包，直接执行下面的指令
+
+```shell
+sudo apt-get install bear
+```
 
