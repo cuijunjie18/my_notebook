@@ -1,5 +1,14 @@
 ## Ubuntu系统的一些常见修改及配置
 
+### 目录
+
+[背景](#背景)  
+[更换系统源](#更换系统apt源)  
+[用户管理](#ubuntu用户管理)
+[系统时间](#ubuntu系统内置时间)
+[restart相关](#设置系统restart等待时间)
+[]
+
 ### 背景
 
 如遇到重装Ubuntu系统，可能会有一些之前的配置忘记，故在此使用笔记的形式记录
@@ -97,3 +106,20 @@ sudo vim system.conf
 ### Ubuntu系统内置时间
 
 有时候发现切换系统后Ubuntu的Auto time set不起作用，换一个wifi即可解决.
+
+### Ubuntu系统声音
+
+前提：系统的settings无法有效解决问题.
+
+当发现自己ubuntu的外放或者耳机没有声音了，应该先去检查output_devices是否正确，需要安装pavucontrol去查看
+
+```shell
+sudo apt install pavucontrol 
+```
+
+打开pavucontrol如下
+
+![具体应用的输出设备](images/b.png)
+![输出设备设置查看](images/c.png)
+
+可以查看每个应用的输出设备，同时可以去输出设备里拖动声音，查看哪个是系统的默认扬声器，这里的Headphones为外放的扬声器，其他的port可能是不同的连线耳机的输出插口.找到自己的外放口或者可以输出声音的口后，为应用设置对应的输出设备即可.
