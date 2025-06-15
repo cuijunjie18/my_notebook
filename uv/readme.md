@@ -1,8 +1,8 @@
-## uv : 轻量化的python包管理器
+# uv : 轻量化的python包管理器
 
 uv官方网址：https://docs.astral.sh/uv/
 
-### 下载
+## 下载
 
 以下2条指令均可
 
@@ -21,7 +21,7 @@ wget -qO- https://astral.sh/uv/install.sh | sh
 
 即可输入uv使用
 
-### uv使用
+## uv使用
 
 **以下是我个人的常用用法，仅供参考**
 
@@ -77,14 +77,17 @@ explicit = true
 接下来便是python包的安装了
 
 ```shell
-    # 从url源安装
-    uv add <package_name>
+# 从url源安装
+uv add <package_name>
 
-    # 从本地文件安装
-    uv add <本地python包.whl>
+# 从本地文件安装
+uv add <本地python包.whl>
 
-    # 指定其他源安装
-    uv add torch --index pytorch=https://download.pytorch.org/whl/cpu # 就会在pyproject.toml文件产生对应的source与index
+# 指定其他源安装
+uv add torch --index pytorch=https://download.pytorch.org/whl/cpu # 就会在pyproject.toml文件产生对应的source与index
+
+# 通过requirements.txt安装包
+uv add -r requirements.txt
 ```
 
 ### uv的环境在vscode的jupyter中无法找到
@@ -117,27 +120,27 @@ explicit = true
 
 - uv init会采用默认的python版本，可以通过下面命令转化
     ```shell
-        uv python pin <py_version> # 转化python版本
-        uv python list # 查看不同版本的安装情况
+    uv python pin <py_version> # 转化python版本
+    uv python list # 查看不同版本的安装情况
     ```
 
 - 要产生虚拟环境，先要执行以下指令
     ```shell
-        uv run python # 如果没有当前python版本，则会自动安装
+    uv run python # 如果没有当前python版本，则会自动安装
     ```
     那么当前目录下就生成了<strong>.venv</strong>目录
 
 - 以当前的环境执行py文件
     ```shell
-        # 法一 : uv 直接执行
-        uv run <.py>
+    # 法一 : uv 直接执行
+    uv run <.py>
 
-        # 法二 : 为当前终端激活环境
-        source .venv/bin/activate
-        pyhton <.py>
+    # 法二 : 为当前终端激活环境
+    source .venv/bin/activate
+    pyhton <.py>
     ```
 
-### 补充内容
+## 补充内容
 
 参考wzx学长的ICT笔记
 
