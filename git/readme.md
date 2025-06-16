@@ -162,3 +162,26 @@ git rm --cache filename
 
 然后再提交，，就会发现不再追踪该文件.
 
+### git下载大文件——使用git -lfs
+
+背景：在hugging-face下载数据集，通过clone的形式，如果没有git-lfs,仅能下载到指向文件的pointer.
+
+huggingface-mirror： https://hf-mirror.com
+
+- 先在git-lfs官网将Linux软件包源添加到本地 
+   
+  官网教程：https://git-lfs.github.com/
+
+  ```shell
+  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+  ```
+
+- 安装gif-lfs本体
+  ```shell
+  sudo apt-get install git-lfs
+  git lfs install #  初始化Git LFS
+  ```
+
+
+
+
