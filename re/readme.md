@@ -1,6 +1,6 @@
-## 正则表达式的使用
+# 正则表达式的使用
 
-### 正则表达式常用操作符
+## 正则表达式常用操作符
 
 |操作符 |	说明 |	实例|
 |--|-- |-- |
@@ -19,7 +19,7 @@
 |\d 	|数字，等价于[0-9]|
 |\w 	|单词字符，等价于[A-Za-z0-9_ ]|
 
-### 语法实例
+## 语法实例
 
 |正则表达式 	|对应字符串|
 |-|-|
@@ -29,7 +29,7 @@
 |PY[^TH]?ON |	‘PYON’、’PYaON’、’PYbON’、’PYcON’……|
 |PY{:3}ON 	|‘PN’、’PYN’、’PYYN’、’PYYYN’|
 
-### 经典实例
+## 经典实例
 
 |正则表达式 	|意义|
 |-|-|
@@ -41,9 +41,9 @@
 |[\u4e00-\u9fa5] |	匹配中文字符|
 |\d{3}-\d{8}\|\d{4}-\d{7} |	国内电话号码 3位-8位或4位-7位|
 
-### python re库的使用
+## python re库的使用
 
-#### re库的核心函数集
+### re库的核心函数集
 
 |函数 	|说明|
 |-|-|
@@ -54,6 +54,27 @@
 |re.finditer() 	|搜索字符串，返回一个匹配结果的迭代类型，每个迭代元素是match对象|
 |re.sub() 	    |在一个字符串中替换所有匹配正则表达式的子串，返回替换后的字符串|
 
-### 后记
+**注意区分search()与match()，其实我一般用search更多**
+
+### 具体使用
+
+- search使用
+  ```shell
+  import re
+  output_text = '```json\n[\n\t{"bbox_2d": [359, 170, 580, 326], "label": "a truck number 14 on a snow bank"}\n]\n```'
+  x = re.search('"bbox_2d":',output_text)
+  start = x.start()
+  end = x.end()
+  print(start,end)
+  output_text = output_text[end:]
+  a = output_text.find("[")
+  b = output_text.find("]")
+  output_text = output_text[a:b + 1]
+  print(output_text)
+  x = eval(output_text) # 将字符串当指令使用，eval
+  print(type(x),x)
+  ```
+
+## 后记
 
 参考文章：https://www.cnblogs.com/huskysir/p/12467491.html
