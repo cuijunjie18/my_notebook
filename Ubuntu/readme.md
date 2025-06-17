@@ -8,6 +8,7 @@
 [系统时间](#ubuntu系统内置时间)  
 [restart相关](#设置系统restart等待时间)  
 [系统声音](#ubuntu系统声音)  
+[磁盘挂载](#)
 
 ## 背景
 
@@ -123,3 +124,77 @@ sudo apt install pavucontrol
 ![输出设备设置查看](images/c.png)
 
 可以查看每个应用的输出设备，同时可以去输出设备里拖动声音，查看哪个是系统的默认扬声器，这里的Headphones为外放的扬声器，其他的port可能是不同的连线耳机的输出插口.找到自己的外放口或者可以输出声音的口后，为应用设置对应的输出设备即可.
+
+## 磁盘挂载
+
+
+偶然一次打开存储在windows上D盘的文件，然后整个系统卡死了，强重启后，出现下面的现象
+
+![](images/d.png)
+
+发现D盘的挂载掉了，下面一步一步操作，以解决问题.
+
+- 查看现在挂载在Ubuntu系统上的存储分区
+  ```shell
+  df -h 
+  ```
+  如下
+  ![](images/e.png)
+  发现没有Data盘的挂载.
+
+- 查看Data盘对应的Filesystem
+  ```shell
+  sudo fdisk -l
+  ```
+  ![](images/f.png)
+
+  这是系统硬件方面列出的主要存储分区，找到Data盘对应的device.
+
+- 重新挂载
+  ```shell
+  sudo mkdir -p /media/cjj/Data # 先创建文件区
+  sudo mount /dev/nvme0n1p4 /media/cjj/Data 
+  ```
+
+  如果出现下面的错误
+  ```shell
+  $MFTMirr does not match $MFT (record 3).
+  Failed to mount '/dev/nvme0n1p4': Input/output error
+  NTFS is either inconsistent, or there is a hardware fault, or it's a
+  SoftRAID/FakeRAID hardware. In the first case run chkdsk /f on Windows
+  then reboot into Windows twice. The usage of the /f parameter is very
+  important! If the device is a SoftRAID/FakeRAID then first activate
+  it and mount a different device under the /dev/mapper/ directory, (e.g.
+  /dev/mapper/nvidia_eahaabcc1). Please see the 'dmraid' documentation
+  for more details.
+  ```
+
+  说明Data盘可能损坏了，尝试修复.
+  ```shell
+  sudo ntfsfix /dev/nvme0n1p4 # 尝试修复 NTFS
+  ```
+  出现下面信息即可.
+  ```shell
+  Mounting volume... $MFTMirr does not match $MFT (record 3).
+  FAILED
+  Attempting to correct errors... 
+  Processing $MFT and $MFTMirr...
+  Reading $MFT... OK
+  Reading $MFTMirr... OK
+  Comparing $MFTMirr to $MFT... FAILED
+  Correcting differences in $MFTMirr record 3...OK
+  Processing of $MFT and $MFTMirr completed successfully.
+  Setting required flags on partition... OK
+  Going to empty the journal ($LogFile)... OK
+  Checking the alternate boot sector... OK
+  NTFS volume version is 3.1.
+  NTFS partition /dev/nvme0n1p4 was processed successfully.
+  ```
+
+  再次挂载即可.
+  ```shell
+  sudo mount /dev/nvme0n1p4 /media/cjj/Data 
+  ```
+
+  **如果仍有问题，去windows系统检查并备份重要文件!!!**
+
