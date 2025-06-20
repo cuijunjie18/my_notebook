@@ -4,6 +4,12 @@
 
 由于常用功能较为简单，仅记录最近新功能及出现问题的操作.
 
+## 目录
+
+[基础知识](#git基础知识)  
+[进阶操作](#git进阶问题)  
+[具体案例](#)
+
 ## git基础知识
 
 - 本地仓库进行版本控制的流程
@@ -55,6 +61,14 @@
   ```
 
 ## git进阶问题
+
+### 目录
+
+[git提交](#git-提交)  
+[stash操作](#stash操作)  
+[switch操作](#switch操作)  
+[.gitignore使用](#gitignore的使用)  
+[gitlfs相关](#git下载大文件使用git--lfs)  
 
 ### git 提交
 
@@ -129,12 +143,16 @@
 
 ### stash操作
 
+通常适用于临时改项目，但是突然要上线可用的版本，那就stash回到之前可用的版本，同时保存当前的工作，等项目结束后在pop继续改.
+
 ```shell
 git stash # 回去最近提交的状态，并保存当前工作状态
 git stash pop # 回到之前保存的工作状态
 ```
 
 ### switch操作
+
+通常适用于clone后切换到本地指定分支，但是一般会默认到本地master分支
 
 ```shell
 git clone <url>
@@ -182,6 +200,48 @@ huggingface-mirror： https://hf-mirror.com
   git lfs install #  初始化Git LFS
   ```
 
+### git rebase 使用(未完善，忽略)
+
+背景：不小心track了一个大文件，而且在本地commit了,自己不知道，但是最后交上去出现
+
+![](images/a.png)
 
 
 
+
+## 具体案例
+
+### git本地仓库意外丢失
+
+丢失原因： 可能因为追踪并提交了大文件等各种原因，目前又不会处理，然后push不了.
+
+总之，如果.git文件无了，那么下面操作.
+
+- 重新初始化
+  ```shell
+  rm -rf .git
+  git init
+  git remote add origin <url>
+  git add .
+  git commit -m xxxx
+  git push origin master
+  ```
+  但是这样一般是交不上去的(虽然可以处理，但是十分复杂)，因为新仓库丢失了太多之前远程仓库的信息.
+
+- 备份、clone、重交组合拳
+  ```shell
+  cd new_dir
+  git clone <url>
+  git switch -c <local_branch> <remote_branch> # 复制远程分支到本地分支(通常会自动绑定本地master到远程的default分支)
+  cd <url的仓库>
+  rm -rf ./*  # 删除全部文件
+  cp -r backup/* . # 复制.git没了的崩溃仓库文件.
+  ```
+
+  即可重新提交了.
+  ```shell
+  git status
+  git add .
+  git commit -m xxx
+  git push origin <now_branch>
+  ```
