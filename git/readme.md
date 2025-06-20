@@ -187,10 +187,9 @@ git clone --depth <n> <repository-url>
 git rm --cache filename
 ```
 
+然后再提交，，就会发现不再追踪该文件.
 
 <br>
-
-然后再提交，，就会发现不再追踪该文件.
 
 ### git下载大文件——使用git -lfs
 
@@ -214,14 +213,25 @@ huggingface-mirror： https://hf-mirror.com
 
 <br>
 
-### git rebase 使用(未完善，忽略)
+### git的GUI默认编辑器设置
 
-背景：不小心track了一个大文件，而且在本地commit了,自己不知道，但是最后交上去出现
+有些服务器的git GUI的默认编辑器是nano，不太习惯，可设置为vim
 
-![](images/a.png)
-
+```shell
+git config core.editor vim
+```
 <br>
 
+
+### git 删除本地历史记录
+
+```shell
+git log # 找到要删除记录的前一个记录hash_id
+git rebase -i <hash_id>
+# pick 改为 drop即可
+```
+
+<br>
 
 ## 具体案例
 
@@ -261,3 +271,70 @@ huggingface-mirror： https://hf-mirror.com
   ```
 
 <br>
+
+### git误交大文件
+
+不小心track了大文件，且本地commit了，然后push出现下面的问题.
+
+![](images/a.png)
+
+
+错误做法： 
+
+```shell
+git rm big-file
+git add .
+git commit "remove big-file"
+git push origin master
+```
+哪怕使用git rm --cached big-file都没用.  
+问题依旧没有解决，因为git是基于历史记录工作的，需要对历史记录进行操作.
+
+正常做法：
+```shell
+# git config core.editor vim # 先设置默认编辑器
+git log # 找到大文件提交的前一个记录
+git rebase -i <commit_hash> # 一般是前6位
+```
+注意找的不是当前大文件提交的记录hash，而是前一个!
+
+进入的界面如下:
+
+![](images/b.png)
+
+操作如下
+```shell
+# 将对应大文件记录的pick -> edit
+pick -> edit
+# pick -> drop 即删除本地记录，等价于reset，一般不用
+```
+
+退出后，终端出现下面的提示
+
+```shell
+Stopped at 005ae66...  3
+You can amend the commit now, with
+
+  git commit --amend 
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+```
+
+此时处于git编辑模式，执行
+```shell
+git rm --cached big-file # 在编辑模式下删除大文件
+git rebase --continue # 完成变基，可能会进入vim,保存退出即可.
+```
+这时候便能正常
+```shell
+git push origin master
+```
+
+同时这些提交不影响和big-file一起提交的其他文件，本质原理是对历史记录进行了修改.
+
+最后给一张完整操作结果图
+![](images/demo.png)
+
+
