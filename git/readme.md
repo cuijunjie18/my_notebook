@@ -337,4 +337,8 @@ git push origin master
 最后给一张完整操作结果图
 ![](images/demo.png)
 
+参考文章：
+- https://xmanyou.com/how-to-revert-commit-with-large-file/
+- https://medium.com/analytics-vidhya/tutorial-removing-large-files-from-git-78dbf4cf83a
+
 

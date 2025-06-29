@@ -196,6 +196,19 @@ plugins=(
     
   即可在bashrc中继承环境变量，不过此时的默认shell要是bash，只是通过~/.bashrc切换到zsh而已，且运行bash指令无法回到bash.需谨慎使用.
 
+### 便捷使用
+
+一键安装指令(适用于有一定基础的用户)
+```shell
+sudo apt-get install zsh -y
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" -y
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 
+```
+
 ### 后续
 
 有错误的地方或需要补充的地方，欢迎提issue.
+
+
