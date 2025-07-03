@@ -27,7 +27,8 @@
 - 分支管理问题
   我对分支的理解即让不同人在不同的分支进行操作,修改,各分支的内容不干扰(当然刚刚创建分支的时候,上一分支的内容会复制到当前新建分支)，可以在各自的分支进行各自的版本控制最后完成项目的时候可以把各个分支的任务合并到主分支中.
   ```shell
-  git branch # 查看分支,*号所在即当前工作分支
+  git branch --all # 查看分支,*号所在即当前工作分支
+  git branch --delete branchname # 删除分支
   git checkout [分支标签] # 切换分支
   git checkout -b [分支标签] # 新建并切换到新分支
   git merge [分支名] # 把分支名对应分支合并到当前分支
@@ -341,4 +342,52 @@ git push origin master
 - https://xmanyou.com/how-to-revert-commit-with-large-file/
 - https://medium.com/analytics-vidhya/tutorial-removing-large-files-from-git-78dbf4cf83a
 
+<br>
 
+### git团队协作——pull request
+
+如果有一个开源仓库，我想要加入开发并成为contributor,那么就需要create pull request，并让作者满意.
+
+团队协作流程
+
+注：有两种形式的协作开发，一种是内部团体开发，这种的可以将开发分支命名为个人id，可直接提交；另一种是开源的，这种就需要fork，这时候的原开源仓库就叫做上游仓库，在本地修改完后即可对上游仓库提pr(即pull request)
+
+- clone或者fork开源仓库
+  ```shell
+  git clone <url>
+  ```
+- 新建develop分支对**远程感兴趣分支**进行二次开发
+  ```shell
+  # 下面指令二选一
+  git checkout -b dev origin/<branch_name> 
+  git switch -c dev origin/<branch_name>
+  ```
+
+- 代码开发
+- (可选)同步远程log，适用于内部团队开发
+  ```shell
+  git fetch
+  ```
+
+- 提交开发分支
+  ```shell
+  git commit -m "demo"
+  git push origin dev
+  ```
+
+- 提出pull request
+  直接在github上提交即可.
+
+那么github上接受了pr，作者本地的对应分支如何同步呢?同步了是否会丢失本地的文件呢?
+- 同步
+  ```shell
+  git fetch # 获取最新的记录
+  git checkout <接受pr的本地分支> # 假设为master
+  git merge master origin/master
+  ```
+
+- 本地文件问题
+  除非接受了删除的文件，否则本地的其余文件不会丢失.
+
+参考文章：
+- https://zhuanlan.zhihu.com/p/672447698
