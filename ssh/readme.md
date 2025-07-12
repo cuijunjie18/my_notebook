@@ -306,9 +306,11 @@ nc -lk <端口号>
 
 - 连接
 
-```shell
-ssh -X user@ip
-```
+  ```shell
+  ssh -X user@ip
+  ```
+
+参考文章： https://blog.csdn.net/Rosenls/article/details/130210686
 
 
 ## 后记
