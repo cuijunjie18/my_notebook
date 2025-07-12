@@ -1,13 +1,14 @@
-## ssh : 远程连接、服务器搭建必备
+# ssh : 远程连接、服务器搭建必备
 
-### 目录
+## 目录
 
 [背景](#背景)  
-[openssh安装与启动](#openssh安装与启动)  
-[ssh的使用](#ssh的使用)  
+[ssh安装与启动](#openssh安装与启动)  
+[ssh的基本使用](#ssh的基本使用)  
 [ssh转发代理](#ssh转发代理)  
+[ssh可视化界面转发](#ssh可视化)  
 
-### 背景
+## 背景
 
 要想使用ssh,需要先查看我们的系统是否有ssh服务了(通常情况是指开源的openssh软件包)  
 
@@ -22,9 +23,7 @@ dpkg -l | grep ssh
 
 如果openssh-client与openssh-server即可跳到[使用阶段](#ssh_use)，否则继续下面的[安装过程](#ssh_install).
 
-### openssh安装与启动
-
-<span id="ssh_install"></span>
+## openssh安装与启动
 
 openssh官网 : https://www.openssh.com/
 
@@ -84,17 +83,15 @@ openssh官网 : https://www.openssh.com/
   systemctl is-enabled ssh
   ```
   
-    或者下面的指令
+  或者下面的指令
   
   ```shell
   systemctl list-unit-files --type=service    --state=enabled | grep ssh 
   ```
   
-    得到结果显示enable即可.
+  得到结果显示enable即可.
 
-### ssh的使用
-
-<span id="ssh_use"></span>
+## ssh的基本使用
 
 - 已知服务器ip及用户，直接连接
   
@@ -151,13 +148,13 @@ openssh官网 : https://www.openssh.com/
   ssh <name>
   ```
 
-### ssh转发代理
+## ssh转发代理
 
-#### 使用背景
+### 使用背景
 
 当服务器上没有梯子的时候，我们客户端（即本地端）有梯子的时候，而我们又可以通过ssh远程连接服务器时，我们就可以通过转发代理来让远程服务器用上梯子.
 
-#### 查看端口
+### 查看端口
 
 想要转发梯子服务，我们必然要查看客户端与服务端的端口信息，可以通过以下方式查看
 
@@ -181,7 +178,7 @@ ss -tnp | grep ssh
 
 ip冒号后面的即端口，状态为estab即为建立状态.
 
-#### 监听端口
+### 监听端口
 
 直接使用nc指令即可
 
@@ -189,7 +186,7 @@ ip冒号后面的即端口，状态为estab即为建立状态.
 nc -lk <端口号>
 ```
 
-#### 代理转发
+### 代理转发
 
 - 先查看本地梯子代理的端口
   进入clash verge查看代理的端口，如下
@@ -288,6 +285,32 @@ nc -lk <端口号>
   
     即**Proxy request sent**，即代理请求成功发送.
 
-### 后记
+## ssh可视化
+
+### 背景
+
+当需要服务器传回服务器上的图片或者可视化程序的输出，如ROS2的rviz2，opencv的imshow等，需要执行可视化操作.
+
+- 服务器设置配置
+
+  ```shell
+  sudo vim /etc/ssh/ssh_config # 或者sshd_config，或者两个都修改
+  ```
+
+  打开并修改注释内容
+  ```shell
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  PasswordAuthentication yes
+  ```
+
+- 连接
+
+```shell
+ssh -X user@ip
+```
+
+
+## 后记
 
 不足与代补充处欢迎提issue！
