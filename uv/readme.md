@@ -106,6 +106,7 @@ uv add -r requirements.txt
 **解决方案**：
 
 - 一、在当前目录下create 一个新的uv环境，只有在当前目录下的.venv隐藏文件，jupyter与vscode的python解释器(interpreter)才能找到.但是这样显然不是我们uv的理想使用目标.
+  
 - 二、先在当前目录下设置python解释器即可.如下图所示.
   ![](images/b.png)
   点击，然后
@@ -114,6 +115,11 @@ uv add -r requirements.txt
   找到路径即可.
 
   **然后就可以在.py和.ipynb使用指定的uv环境了!**
+
+- 三、使用软连接在本地生成.venv
+  ```shell
+  ln -s <your uv .venv dir> .venv
+  ```
 
 
 ### 其他
