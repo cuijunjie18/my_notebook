@@ -1,11 +1,18 @@
-## conda配置与使用
+# Anaconda配置与使用
 
-### 背景
+## 目录
+
+[背景](#背景)  
+[conda安装](#anaconda安装)   
+[conda配置](#conda配置与使用)    
+[conda使用](#conda使用)  
+
+## 背景
 
 conda是一类python包管理器，可以创建不同的虚拟环境以满足不同需求，现在流行的有Miniconda、Anaconda等
 我们这里介绍Anaconda的安装、配置与使用
 
-### Anaconda安装
+## Anaconda安装
 
 官网：https://www.anaconda.com/
 
@@ -50,7 +57,7 @@ bash Anaconda3-2024.06-1-Linux-x86_64.sh
 出现下面即是成功！
 ![](images/c.png)
 
-### Anaconda配置
+## Anaconda配置
 
 - 安装完后，需要导入环境变量，在~/.bashrc或~/.zshrc中添加
 
@@ -108,7 +115,7 @@ bash Anaconda3-2024.06-1-Linux-x86_64.sh
 
   再次运行conda info即可发现源变了
 
-### conda使用
+## conda使用
 
 - 创建虚拟环境
   ```shell
@@ -145,7 +152,21 @@ bash Anaconda3-2024.06-1-Linux-x86_64.sh
   ~/.bashrc中欧conda init部分如下图
 
   ![](images/f.png)
+ 
 
-### 后记
+## 注意事项
+
+- conda换的源是使用下面的指令才有效的
+  ```shell
+  conda install
+  ```
+  如果需要使用conda虚拟环境下的pip指令安装，则需要类似下面的指令(**以清华源的pip源为例**)
+  ```shell
+  conda activate <your-env>
+  pip install <package_name> -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+  ```
+  永久配置的方式不太推荐!!!
+
+## 后记
 
 不足或者错误的地方，欢迎提出！
