@@ -7,6 +7,7 @@
 [ssh的基本使用](#ssh的基本使用)  
 [ssh转发代理](#ssh转发代理)  
 [ssh可视化界面转发](#ssh可视化)  
+[ssh用户环境隔离](#ssh用户环境隔离)  
 
 ## 背景
 
@@ -311,6 +312,49 @@ nc -lk <端口号>
   ```
 
 参考文章： https://blog.csdn.net/Rosenls/article/details/130210686
+
+## ssh用户环境隔离
+
+### 使用背景
+
+一般用于资源紧缺的GPU集群，多个人共用一个服务器用户时，需要环境隔离.
+
+### 教程
+
+- 本地~/.ssh/config修改
+  ```vim
+  Host <name>
+    HostName <server_ip>
+    User <user_name>
+    Port <port>
+    RemoteCommand /home/ma-user/work/<username>/init.sh
+    RequestTTY yes
+  ```
+
+- 远程服务器上的配置
+  在需要隔离的"用户目录"创建配置文件，以/data/x00525162/cjj_node为例
+  ```shell
+  cd /data/x00525162/cjj_node # 其中x00525162为共享用户
+  vim init.sh
+  ```
+
+  写入
+  ```shell
+  export HOME=/data/x00525162/cjj_node
+  exec bash # 关键一步
+  #exec zsh
+  ```
+  
+  接着把原~/.bashrc复制
+  ```shell
+  cp ~/.bashrc /data/x00525162/cjj_node
+  ```
+
+  更新环境，实现隔离
+  ```shell
+  cd /data/x00525162/cjj_node
+  source init.sh
+  ```
 
 
 ## 后记
