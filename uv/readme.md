@@ -1,8 +1,20 @@
 # uv : 轻量化的python包管理器
 
+## 目录
+
+[背景](#背景)  
+[uv下载](#uv下载)  
+[uv使用](#uv使用)
+[uv实际使用案例](#uv实际使用案例)    
+[其他](#其他)  
+
+## 背景
+
+比conda轻量化的python包管理工具，解析依赖速度快，环境迁移操作方便.  
+
 uv官方网址：https://docs.astral.sh/uv/
 
-## 下载
+## uv下载
 
 以下2条指令均可
 
@@ -90,7 +102,9 @@ uv add torch --index pytorch=https://download.pytorch.org/whl/cpu # 就会在pyp
 uv add -r requirements.txt
 ```
 
-### uv的环境在vscode的jupyter中无法找到
+## uv实际使用案例
+
+### 一、uv的环境在vscode的jupyter中无法找到
 
 <strong>我要的uv环境：/home/cjj/uv_env/d2l/.venv/bin/python3</strong>
 
@@ -120,6 +134,22 @@ uv add -r requirements.txt
   ```shell
   ln -s <your uv .venv dir> .venv
   ```
+
+### 二、uv更新包依赖
+
+若直接执行下面的操作
+```shell
+uv pip install --upgrade transformers accelerate
+```
+确实会显示更新，但是执行下面指令后又会恢复原来的版本
+```shell
+uv run 
+```
+
+需要使用**uv lock**去更新包依赖，例如
+```shell
+uv lock --upgrade-package transformers accelerate
+```
 
 
 ### 其他
