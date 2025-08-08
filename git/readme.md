@@ -68,8 +68,11 @@
 [git提交](#git-提交)  
 [stash操作](#stash操作)  
 [switch操作](#switch操作)  
+[clone操作](#clone操作)  
 [.gitignore使用](#gitignore的使用)  
-[gitlfs相关](#git下载大文件使用git--lfs)  
+[gitlfs相关](#git下载大文件使用git--lfs)   
+[git默认GUI](#git的gui默认编辑器设置)  
+[git删除本地历史记录](#git-删除本地历史记录)  
 
 <br>
 
@@ -391,3 +394,34 @@ git push origin master
 
 参考文章：
 - https://zhuanlan.zhihu.com/p/672447698
+
+
+### git提交大文件
+
+git提交大文件需要使用git-lfs，参考官网使用： https://git-lfs.com/
+
+- 下载git-lfs(**建议每次提交前执行一次**)
+  ```shell
+  git lfs install
+  ```
+
+- 追踪大文件
+  ```shell
+  git lfs track "*.zip"
+  ```
+
+- 确保.gitattributes被追踪
+  ```shell
+  git add .gitattributes
+  ```
+
+- 追踪大文件并提交
+  ```shell
+  git add file.zip
+  git commit -m "Add design file"
+  git push origin main
+  ```
+
+成功会出现下面的上传过程
+![git-lfs上传](images/c.png)
+
