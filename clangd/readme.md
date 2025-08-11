@@ -89,3 +89,39 @@ sudo apt-get install bear
 排查做法：查看vscode的output即可查看报错，根据报错去找到具体的原因即可.
 
 ![](images/d.png)
+
+### 标准库找不到
+
+当编译完c语言内核代码后，我发现clangd插件找不到c++的标准库了，如下
+
+![problem](images/e.png)
+
+解决方法：
+
+先找到库头文件的位置
+```shell
+g++ -v -E -x c++ - < /dev/null 2>&1 | grep -i " /usr/include"
+```
+
+输出可能如下
+```shell
+ /usr/include/c++/11
+ /usr/include/x86_64-linux-gnu/c++/11
+ /usr/include/c++/11/backward
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+```
+
+找到缺失的手动添加到clangd产生的compile_commands.json文件，以/usr/include/x86_64-linux-gnu/c++/11为例子，添加后的compile_commands.json文件如下
+
+```json
+[
+{
+  "directory": "/home/cjj/Desktop/my_project/OS_Concept/第3章/编程作业/3.18/build",
+  "command": "/usr/bin/c++   -std=gnu++17 -o CMakeFiles/main.dir/zombie_generate.cpp.o -c /home/cjj/Desktop/my_project/OS_Concept/第3章/编程作业/3.18/zombie_generate.cpp -isystem /usr/include/c++/11 -isystem /usr/include/x86_64-linux-gnu/c++/11",
+  "file": "/home/cjj/Desktop/my_project/OS_Concept/第3章/编程作业/3.18/zombie_generate.cpp"
+}
+]
+```
+
+其中-isystem /usr/include/x86_64-linux-gnu/c++/11是关键
