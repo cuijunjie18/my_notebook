@@ -9,6 +9,8 @@
 [ssh可视化界面转发](#ssh可视化)  
 [ssh用户环境隔离](#ssh用户环境隔离)   
 
+<br>
+
 ## 背景
 
 要想使用ssh,需要先查看我们的系统是否有ssh服务了(通常情况是指开源的openssh软件包)  
@@ -23,6 +25,8 @@ dpkg -l | grep ssh
 ![查找openssh](images/a.png)
 
 如果openssh-client与openssh-server即可跳到[使用阶段](#ssh_use)，否则继续下面的[安装过程](#ssh_install).
+
+<br>
 
 ## openssh安装与启动
 
@@ -91,6 +95,7 @@ openssh官网 : https://www.openssh.com/
   ```
   
   得到结果显示enable即可.
+<br>
 
 ## ssh的基本使用
 
@@ -148,6 +153,8 @@ openssh官网 : https://www.openssh.com/
   ```shell
   ssh <name>
   ```
+
+<br>
 
 ## ssh转发代理
 
@@ -285,6 +292,20 @@ nc -lk <端口号>
   ```
   
     即**Proxy request sent**，即代理请求成功发送.
+
+### http代理与sock5代理的应用范围
+
+| **需求场景**                     | **推荐代理类型** |
+|----------------------------------|------------------|
+| 仅需Web浏览                      | HTTP代理         |
+| 需要代理整个操作系统/所有应用    | SOCKS5代理       |
+| 使用UDP应用（视频通话/在线游戏） | SOCKS5代理       |
+| 需要内容过滤或缓存               | HTTP代理         |
+| 代理非HTTP协议（如FTP）          | SOCKS5代理       |
+
+可见，sock5的范围比http代理广，sock5可以代理整个需要用流量的操作，包括http代理.
+
+<br>
 
 ## ssh可视化
 
