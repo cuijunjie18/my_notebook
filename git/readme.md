@@ -66,9 +66,9 @@
 ### 目录
 
 [git提交](#git-提交)  
+[clone操作](#clone操作)  
 [stash操作](#stash操作)  
 [switch操作](#switch操作)  
-[clone操作](#clone操作)  
 [.gitignore使用](#gitignore的使用)  
 [gitlfs相关](#git下载大文件使用git--lfs)   
 [git默认GUI](#git的gui默认编辑器设置)  
@@ -238,6 +238,15 @@ git rebase -i <hash_id>
 <br>
 
 ## 具体案例
+
+### 目录
+
+[git本地仓库意外丢失](#git本地仓库意外丢失)   
+[git误交大文件](#git误交大文件)    
+[git提交大文件](#git提交大文件)  
+[git团队协作](#git团队协作pull-request)  
+[git配置代理](#git配置代理)  
+[clone私有仓库](#clone私有仓库)  
 
 ### git本地仓库意外丢失
 
@@ -425,3 +434,34 @@ git提交大文件需要使用git-lfs，参考官网使用： https://git-lfs.co
 成功会出现下面的上传过程
 ![git-lfs上传](images/c.png)
 
+
+### git配置代理
+
+这里仅将如何为git配置http代理，ssh代理见[git提交](#git-提交)  
+
+执行
+```shell
+git config --global http_proxy http://<url> # 如http://localhost:50001
+git config --global https_proxy https://<url>
+```
+
+查看配置信息
+```shell
+git config --list
+# 或者vim ~/.gitconfig
+```
+
+### clone私有仓库
+
+一般而言，私有仓库clone将需要clone的本机ssh公钥放到个人github设置即可clone，如果不行，可以设置token使用https下载.
+
+先在此界面获取token
+
+![get tokens](images/token.png)
+
+然后执行下面的clone
+```shell
+git clone https://<token_name>:<token>@github.com/<your_repository>
+# 如下
+git clone https://123:131212@github.com/cuijunjie18/HuaWei-Qwen2.5VL.git
+```
