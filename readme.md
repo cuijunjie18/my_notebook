@@ -9,7 +9,7 @@
 - **[uv配置](uv/readme.md)**        &emsp;&emsp;&emsp;&emsp;&emsp;    last update_date : Aug,4 2025
 - **[clangd使用](clangd/readme.md)**    &emsp;&emsp;&emsp;    last update_date : Aug,11 2025
 - **[ssh使用](ssh/readme.md)**            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   last update_date : Aug,13 2025
-- **[input_method](input_method/readme.md)**  &emsp; &emsp; last update_date： May,31 2025
+- **[input_method](input_method/readme.md)**  &emsp; &emsp; last update_date： Aug,19 2025
 - **[vim配置与技巧](vim/readme.md)**   &emsp;&emsp; &emsp;     last update_date : Apr,10 2025
 - **[git使用指南](git/readme.md)** &emsp;&emsp; &emsp;&emsp; last update_date：Aug,14 2025
 - **[zsh配置](zsh/readme.md)**     &emsp;&emsp;&emsp;&emsp;&emsp; last update_date : Aug,1 2025
