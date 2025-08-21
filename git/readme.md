@@ -179,6 +179,11 @@ git switch -c <local_branch> <remote_branch>
 git clone --depth <n> <repository-url>
 ```
 
+clone指定分支到本地为默认分支(通常clone到本地的默认分支为远程的默认分支)
+```shell
+git clone --branch <branch_name> <repository-url>
+```
+
 <br>
 
 ### .gitignore的使用
