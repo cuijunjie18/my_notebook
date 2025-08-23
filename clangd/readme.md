@@ -125,3 +125,20 @@ g++ -v -E -x c++ - < /dev/null 2>&1 | grep -i " /usr/include"
 ```
 
 其中-isystem /usr/include/x86_64-linux-gnu/c++/11是关键
+
+
+### compilation database is found的默认补全出问题
+
+即类似下面的问题
+```shell
+'iostream' file not foundclang(pp_file_not_found)
+```
+
+根据参考文献，似乎新版的clangd是默认查找c++12的头文件的，而我的是c++11,解决方案，下载c++12
+```shell
+sudo apt install libstdc++-12-dev/jammy-security 
+```
+
+参考文章：https://blog.csdn.net/weixin_47543494/article/details/140238741
+
+另一篇好的参考文章：https://airchaoz.notion.site/WSL-VSCode-Clangd-3d3356f6d64246178b0dccb64311d749
