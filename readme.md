@@ -21,6 +21,7 @@
 - **[plt库使用](plt/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jun,3 2025
 - **[cmake使用](cmake/readme.md)**  &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jun,9 2025  
 - **[tmux使用](tmux/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Jul,23 2025
+- **[cron使用](cron/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Aug,25 2025
 
 ### 后话
 
