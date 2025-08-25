@@ -17,7 +17,10 @@
 |$ 	|匹配字符串结尾 	|abc且在一个字符串的结尾|
 |() 	|分组标记，内部只能使用\|操作符 |(abc)表示abc,(abc\|def)表示abc、def|
 |\d 	|数字，等价于[0-9]|
+|\D   |非数字，[^0-9]|
 |\w 	|单词字符，等价于[A-Za-z0-9_ ]|
+|\W   |非单词字符|
+
 
 ## 语法实例
 
@@ -74,6 +77,22 @@
   x = eval(output_text) # 将字符串当指令使用，eval
   print(type(x),x)
   ```
+
+- 分组标记()使用
+
+```py
+demo_str2 = '/go.js?v=" + Math.random() + "'
+match = re.search(r"/([\d\D]*.js)",demo_str2)
+print(match)
+print(match.group(1))
+```
+
+输出
+```shell
+<re.Match object; span=(0, 6), match='/go.js'>
+go.js
+```
+
 
 ## 后记
 
