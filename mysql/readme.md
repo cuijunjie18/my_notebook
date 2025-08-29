@@ -6,6 +6,9 @@
 
 ## 目录
 
+[安装](#mysql数据库安装)  
+[基本使用](#mysql数据库基本使用)  
+
 ## mysql数据库安装
 
 本文为linux系统，型号如下
@@ -46,6 +49,11 @@ Linux cjj-HKF-WXX 6.8.0-65-generic #68~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Ju
   ```shell
   sudo mysql
   # exit 指令退出
+  ```
+
+  为root @ localhost设置密码
+  ```shell
+  alter user root@localhost identified with mysql_native_password by <new_passwd>;
   ```
 
 - 查看数据库
