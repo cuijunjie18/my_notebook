@@ -56,6 +56,8 @@ Linux cjj-HKF-WXX 6.8.0-65-generic #68~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Ju
   alter user root@localhost identified with mysql_native_password by <new_passwd>;
   ```
 
+  之后就不能直接sudo登陆了，需要使用[用户登陆](#mysql用户基本操作)
+
 - 查看数据库
   ```shell
   show databases; # 查看全部已创建的数据库
