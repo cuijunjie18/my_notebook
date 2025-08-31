@@ -8,6 +8,7 @@
 
 [安装](#mysql数据库安装)  
 [基本使用](#mysql数据库基本使用)  
+[参考](#参考)  
 
 ## mysql数据库安装
 
@@ -42,6 +43,10 @@ Linux cjj-HKF-WXX 6.8.0-65-generic #68~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Ju
 本地安装好MySQL后，系统会自动配置好登陆密码，本地登陆MySQL可以在不输入密码的情况下完成(默认仅能root用户登陆).
 
 ## mysql数据库基本使用
+
+[基本操作](#mysql数据库基本使用)  
+[用户操作](#mysql用户基本操作)  
+[database操作](#数据库数据操作)  
 
 ### 数据库基本操作
 
@@ -141,6 +146,12 @@ Linux cjj-HKF-WXX 6.8.0-65-generic #68~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Ju
   ```
   其中，person为表名，表包括3列，name、sex、age
 
+- 查看当前数据库的所有的表
+  ```shell
+  use <database>;
+  show tables;
+  ```
+
 - 插入数据
   ```shell
   # 插入所有列
@@ -191,3 +202,5 @@ https://blog.csdn.net/weixin_45626288/article/details/133220238
 https://blog.csdn.net/weixin_37926734/article/details/127464037
 
 https://blog.csdn.net/fightingXia/article/details/82720973
+
+https://github.com/jaywcjlove/mysql-tutorial
