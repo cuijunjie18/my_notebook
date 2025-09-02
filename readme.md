@@ -6,7 +6,7 @@
 
 ### 目录
 
-- **[uv配置](uv/readme.md)**        &emsp;&emsp;&emsp;&emsp;&emsp;    last update_date : Aug,4 2025
+- **[uv配置](uv/readme.md)**        &emsp;&emsp;&emsp;&emsp;&emsp;    last update_date : Sep,2 2025
 - **[clangd使用](clangd/readme.md)**    &emsp;&emsp;&emsp;    last update_date : Aug,23 2025
 - **[ssh使用](ssh/readme.md)**            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   last update_date : Aug,13 2025
 - **[input_method](input_method/readme.md)**  &emsp; &emsp; last update_date： Aug,19 2025

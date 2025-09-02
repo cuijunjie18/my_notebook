@@ -151,6 +151,23 @@ uv run
 uv lock --upgrade-package transformers accelerate
 ```
 
+### 三、uv无法下载python版本
+
+有时候执行下面的指令后会默认安装需要的python版本
+```shell
+uv python pin
+uv run python
+```
+
+因为默认从github上下载的，所以对于某些服务器有问题，会出现下面的问题
+![python安装失败](images/e.png)
+
+那么根据上面的版本路径，在本地下载好压缩包后，scp过去，解压，添加python可执行文件到PATH即可解决.
+
+```shell
+uv python list
+```
+此时能正确找到
 
 ### 其他
 
