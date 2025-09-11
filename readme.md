@@ -25,6 +25,7 @@
 - **[mysql使用](mysql/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Aug,31 2025
 - **[Termux使用](termux/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Sep,1 2025
 - **[docker使用](docker/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Sep,8 2025
+- **[gdb使用](gdb/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Sep,11 2025
 
 ### 后话
 
