@@ -11,7 +11,7 @@
 - **[ssh使用](ssh/readme.md)**            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   last update_date : Aug,13 2025
 - **[input_method](input_method/readme.md)**  &emsp; &emsp; last update_date： Aug,19 2025
 - **[vim配置与技巧](vim/readme.md)**   &emsp;&emsp; &emsp;     last update_date : Apr,10 2025
-- **[git使用指南](git/readme.md)** &emsp;&emsp; &emsp;&emsp; last update_date：Aug,21 2025
+- **[git使用指南](git/readme.md)** &emsp;&emsp; &emsp;&emsp; last update_date：Sep,13 2025
 - **[zsh配置](zsh/readme.md)**     &emsp;&emsp;&emsp;&emsp;&emsp; last update_date : Aug,1 2025
 - **[conda配置](conda/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jul,31 2025
 - **[zellij使用](zellij/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : May,23 2025
@@ -25,7 +25,7 @@
 - **[mysql使用](mysql/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Aug,31 2025
 - **[Termux使用](termux/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Sep,1 2025
 - **[docker使用](docker/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Sep,8 2025
-- **[gdb使用](gdb/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Sep,11 2025
+- **[gdb使用](gdb/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Sep,13 2025
 
 ### 后话
 

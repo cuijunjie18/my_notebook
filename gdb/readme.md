@@ -1,5 +1,18 @@
 # GDB调试工具使用
 
+## 配置
+
+### gdb dashboard安装
+
+由于原始 GDB 命令行过于简陋，为方便调试，我们需要下载 gdb-dashboard 插件
+
+参考官网安装教程：https://github.com/cyrus-and/gdb-dashboard
+
+启用语法高亮，需要安装pygments的python包
+```shell
+pip install --no-cache-dir pygments
+```
+
 ## 具体案例
 
 ### 调试core dump
@@ -32,4 +45,5 @@ core dump是程序崩溃前保存的**快照**，用于调试.
 
 ## 参考
 
-https://zhuanlan.zhihu.com/p/1894779801983767813
+调试core dump： https://zhuanlan.zhihu.com/p/1894779801983767813  
+简单使用： https://blog.csdn.net/weixin_45031801/article/details/134399664  

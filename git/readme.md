@@ -252,6 +252,8 @@ git rebase -i <hash_id>
 [git团队协作](#git团队协作pull-request)  
 [git配置代理](#git配置代理)  
 [clone私有仓库](#clone私有仓库)  
+[导出差异](#导出差异)  
+
 
 ### git本地仓库意外丢失
 
@@ -470,3 +472,12 @@ git clone https://<token_name>:<token>@github.com/<your_repository>
 # 如下
 git clone https://123:131212@github.com/cuijunjie18/HuaWei-Qwen2.5VL.git
 ```
+
+### 导出差异
+
+有时候我们希望比较两次提交的差异，需要导出差异对比文件
+```shell
+git diff <old-commit-id> <new-commit-id> >> <save_file>
+```
+
+这样差异文件就存在<save_file>里了
