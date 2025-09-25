@@ -72,7 +72,8 @@
 [.gitignore使用](#gitignore的使用)  
 [gitlfs相关](#git下载大文件使用git--lfs)   
 [git默认GUI](#git的gui默认编辑器设置)  
-[git删除本地历史记录](#git-删除本地历史记录)  
+[git删除本地历史记录](#git-删除本地历史记录)    
+[git使用http相关操作免密](#git配置http免密)  
 
 <br>
 
@@ -238,6 +239,14 @@ git config core.editor vim
 git log # 找到要删除记录的前一个记录hash_id
 git rebase -i <hash_id>
 # pick 改为 drop即可
+```
+
+### git配置http免密
+
+当git使用http进行相关的clone、push等操作的时候，每次要输入username、passwd，使用的下面指令，执行一次后(输入一次密码)后续相同的仓库就不需要输入认证信息了.
+
+```shell
+git config --global credential.helper store
 ```
 
 <br>
