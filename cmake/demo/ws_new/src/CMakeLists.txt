@@ -1,0 +1,5 @@
+MESSAGE("MAIN begin!")
+MESSAGE("THIS is CMAKE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}")
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/hello)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/kill)
+MESSAGE("MAIN end!")

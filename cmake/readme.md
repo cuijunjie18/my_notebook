@@ -1,17 +1,27 @@
-## cmake的配置及使用
+# cmake的配置及使用
 
-### 背景
+## 目录
+
+[背景](#背景)  
+[安装](#cmake安装)  
+[cmake模板](#cmake常用模板)  
+[cmake嵌套](#cmake嵌套)  
+[cmake杂技](#cmake杂技)   
+
+## 背景
 
 由于cmake的简单用法比较简单，且零基础的网上的教学更好，在这里我直接放一个常用模板和其他技巧性的功能.
 
-### cmake安装
+可参考我在gitee上的学习过程： https://gitee.com/cuijunjie18/cmake-learning  
+
+## cmake安装
 
 直接执行下面的指令即可
 ```shell
 sudo apt-get install cmake
 ```
 
-### cmake常用模板
+## cmake常用模板
 
 一、新手向的模板
 
@@ -149,7 +159,19 @@ target_link_libraries(
 )
 ```
 
-### cmake杂技
+## cmake嵌套
+
+为什么需要CMakeLists.txt文件嵌套呢？因为当项目结构、功能过多的时候，如果只用一个CMakeLists.txt的话逻辑就会过长.
+
+简单参考： https://blog.csdn.net/weixin_43808717/article/details/138403467
+
+**核心操作add_subdirectory()**
+
+我的理解：当执行到add_subdirectory时，就会进入对应的CMakeLists.txt中进行cmake操作，所以一般使用cmake变量**CMAKE_CURRENT_SOURCE_DIR**
+
+具体简单例子可见：[demo嵌套](demo/ws_new)
+
+## cmake杂技
 
 - 设置c++标准
   
@@ -201,6 +223,6 @@ target_link_libraries(
   message(FATAL_ERROR "var = ${VAR}") # 中断执行
   ```
 
-### 后记
+## 后记
 
 作者寄语：当cmake调试一直有问题，直接删除build、cache,这可能会解决问题.(血与泪的经验)
