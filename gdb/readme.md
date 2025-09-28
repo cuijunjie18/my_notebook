@@ -13,6 +13,11 @@
 pip install --no-cache-dir pygments
 ```
 
+**注意如果不生效，执行下面的命令**
+```shell
+grep -qxF 'set auto-load safe-path /' ~/.gdbinit || echo 'set auto-load safe-path /' >> ~/.gdbinit # 使gdb可以信任所有目录的.gdbinit
+```
+
 ## 具体案例
 
 ### 调试core dump
