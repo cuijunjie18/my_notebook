@@ -18,6 +18,13 @@ pip install --no-cache-dir pygments
 grep -qxF 'set auto-load safe-path /' ~/.gdbinit || echo 'set auto-load safe-path /' >> ~/.gdbinit # 使gdb可以信任所有目录的.gdbinit
 ```
 
+- 在gdb中查看dashboard的使用
+  进入gdb后，执行
+  ```shell
+  help dashboard
+  ```
+  如果输出信息，说明dashboard成功安装，后续run即可自动显示
+
 ## 具体案例
 
 ### 调试core dump
