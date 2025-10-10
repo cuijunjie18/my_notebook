@@ -57,6 +57,31 @@ docker run hello-world
     sudo systemctl restart docker
     ```
 
+### 运行一个容器
+
+- 查看可用的镜像
+  ```shell
+  docker images
+  ```
+
+- 直接运行容器
+  ```shell
+  docker run -it <image_id> bash
+  # 或者docker run -it <image_name> bash
+  ```
+  这样就会直接进入容器，
+  但是这样每次ctrl + D或者exit退出容器，其中的数据都不存在了，需要后台执行
+
+- 后台运行容器
+  ```shell
+  docker run -it -d <image_id> bash
+  ```
+  执行了这条命令后容器进入后台执行，需要显示进入
+  ```shell
+  docker container ls # 查看正在运行的容器
+  docker exec -it <container_id> bash/zsh
+  ```
+
 ## 参考
 
 csdn: https://blog.csdn.net/weixin_71699295/article/details/137387383
