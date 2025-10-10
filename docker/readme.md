@@ -82,6 +82,12 @@ docker run hello-world
   docker exec -it <container_id> bash/zsh
   ```
 
+- 如果已经以前台运行了一个容器，如何后台挂起
+  ```shell
+  # 在容器内按下组合键
+  ctrl + P,ctrl + Q
+  ```
+
 ## 参考
 
 csdn: https://blog.csdn.net/weixin_71699295/article/details/137387383
