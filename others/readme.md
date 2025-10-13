@@ -1,4 +1,4 @@
-# 杂项
+# 杂项(未分类的)
 
 ## wget遇到证书认证问题
 
@@ -27,3 +27,41 @@ wget --no-check-certificate <url>
   ps -ef | grep zsh | grep -v grep # 这样就不会包括grep命令本身了
   ps -ef | grep zsh | grep -v grep | grep -v $$ # $$是一个特殊变量，表示当前shell会话的PID
   ```
+
+## 一种可选择执行的bash脚本编写
+
+```shell
+#!/bin/bash
+
+export PATH=$PATH:/mnt/data/workspace/obf_em/build/bin
+
+echo $PATH | tr ':' '\n'
+echo '================================='
+echo $LD_LIBRARY_PATH | tr ':' '\n'
+echo '================================='
+
+while true; do
+echo "Please choose what you run:"
+echo "1. run to end"
+echo "2. gdb the executable"
+echo "3. normal demo"
+read -r choice
+case $choice in
+        1)
+            build/bin/execution-management -m build/configs/examples/machine.json -a build/configs/examples/app_folder_start_with_depend
+            break
+            ;;
+        2)
+            gdb --args build/bin/execution-management -m build/configs/examples/machine.json -a build/configs/examplesapp_folder_start_with_depend
+            break
+            ;;
+        3) 
+            build/scripts/start_execution_management_demo.sh
+            break
+            ;;
+        *) echo "invalid option. Please try again"
+            break
+            ;;
+    esac
+done
+```
