@@ -223,6 +223,9 @@ target_link_libraries(
   message(FATAL_ERROR "var = ${VAR}") # 中断执行
   ```
 
+- 头文件、库的查找、使用
+  可以[sql的cmake使用](../mysql/readme.md)为具体案例学习
+
 ## 后记
 
 作者寄语：当cmake调试一直有问题，直接删除build、cache,这可能会解决问题.(血与泪的经验)

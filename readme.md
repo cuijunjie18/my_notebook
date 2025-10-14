@@ -19,10 +19,10 @@
 - **[Ubuntu系统配置](Ubuntu/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jul,21 2025
 - **[re使用(正则表达式)](re/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Aug,25 2025
 - **[plt库使用](plt/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jun,3 2025
-- **[cmake使用](cmake/readme.md)**  &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Sep,25 2025  
+- **[cmake使用](cmake/readme.md)**  &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Oct,14 2025  
 - **[tmux使用](tmux/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Jul,23 2025
 - **[cron使用](cron/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Aug,25 2025
-- **[mysql使用](mysql/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Aug,31 2025
+- **[mysql使用](mysql/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Oct,14 2025
 - **[Termux使用](termux/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Sep,1 2025
 - **[docker使用](docker/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Oct,10 2025
 - **[gdb使用](gdb/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Sep,28 2025
