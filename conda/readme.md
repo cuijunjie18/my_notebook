@@ -78,7 +78,7 @@ bash Anaconda3-2024.06-1-Linux-x86_64.sh
     在这个信息中可以看到它的默认源即其他信息
 
 - 切换默认源
-  法一：直接命令行执行
+  ~~法一：直接命令行执行(已弃用)~~
   ```shell
   conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
   conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main

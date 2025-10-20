@@ -13,7 +13,7 @@
 - **[vim配置与技巧](vim/readme.md)**   &emsp;&emsp; &emsp;     last update_date : Apr,10 2025
 - **[git使用指南](git/readme.md)** &emsp;&emsp; &emsp;&emsp; last update_date：Sep,25 2025
 - **[zsh配置](zsh/readme.md)**     &emsp;&emsp;&emsp;&emsp;&emsp; last update_date : Aug,1 2025
-- **[conda配置](conda/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jul,31 2025
+- **[conda配置](conda/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Oct,20 2025
 - **[zellij使用](zellij/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : May,23 2025
 - **[ln使用](ln/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jun,14 2025
 - **[Ubuntu系统配置](Ubuntu/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Jul,21 2025
