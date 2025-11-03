@@ -1,10 +1,23 @@
 # docker使用
 
+## 目录
+
+[安装](#ubuntu下docker安装)  
+[具体例子](#具体案例)  
+
 ## Ubuntu下docker安装
 
 csdn： https://blog.csdn.net/u011278722/article/details/137673353
 
+- 添加用户到docker用户组
+  ```shell
+  sudo usermod -aG docker <user>
+  ```
+
 ## 具体案例
+
+[设置代理](#无法连接docker-hub)  
+[运行容器](#运行一个容器)  
 
 ### 无法连接docker-hub
 
