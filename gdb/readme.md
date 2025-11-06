@@ -1,6 +1,13 @@
 # GDB调试工具使用
 
-## 配置
+## 目录
+
+[gdb配置](#美化配置)  
+[使用案例](#具体案例)  
+
+<br>
+
+## 美化配置
 
 ### gdb dashboard安装
 
@@ -24,6 +31,8 @@ grep -qxF 'set auto-load safe-path /' ~/.gdbinit || echo 'set auto-load safe-pat
   help dashboard
   ```
   如果输出信息，说明dashboard成功安装，后续run即可自动显示
+
+<br>
 
 ## 具体案例
 
@@ -54,6 +63,42 @@ core dump是程序崩溃前保存的**快照**，用于调试.
   具体效果如下(一个空指针错误例子)
   ![empty_ptr](images/a.png)  
 
+  <br>
+
+## 带命令参数的调试
+
+
+命令格式
+```shell
+gdb --args ./program arg1 arg2 arg3
+```
+
+可以使用下面的demo代码调试带参数、段错误
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(int argc,char *argv[]){
+    std::cout << argc << "\n";
+    for (int i = 0; i < argc; i++){
+        std::cout << argv[i] << "\n";
+    }
+    int *p = nullptr;
+    std::cout << *p << "\n";
+    return 0;
+}
+```
+
+demo尝试
+```shell
+g++ -g -o demo demo.cpp
+gdb --args ./demo 123 456 789
+run # 直到段错误
+bt  # 查看函数调用栈
+```
+
+<br>
 
 ## 参考
 
