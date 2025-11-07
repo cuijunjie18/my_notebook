@@ -1,6 +1,13 @@
 # 正则表达式的使用
 
-## 正则表达式常用操作符
+## 目录
+
+[正则表达式基础](#正则表达式基础)  
+[python re库的使用](#python-re库的使用)  
+
+## 正则表达式基础
+
+### 正则表达式常用操作符
 
 |操作符 |	说明 |	实例|
 |--|-- |-- |
@@ -21,8 +28,10 @@
 |\w 	|单词字符，等价于[A-Za-z0-9_ ]|
 |\W   |非单词字符|
 
+<br>
 
-## 语法实例
+
+### 语法实例
 
 |正则表达式 	|对应字符串|
 |-|-|
@@ -32,7 +41,9 @@
 |PY[^TH]?ON |	‘PYON’、’PYaON’、’PYbON’、’PYcON’……|
 |PY{:3}ON 	|‘PN’、’PYN’、’PYYN’、’PYYYN’|
 
-## 经典实例
+<br>
+
+### 经典实例
 
 |正则表达式 	|意义|
 |-|-|
@@ -44,9 +55,11 @@
 |[\u4e00-\u9fa5] |	匹配中文字符|
 |\d{3}-\d{8}\|\d{4}-\d{7} |	国内电话号码 3位-8位或4位-7位|
 
+<br>
+
 ## python re库的使用
 
-### re库的核心函数集
+## re库的核心函数集
 
 |函数 	|说明|
 |-|-|
@@ -59,26 +72,30 @@
 
 **注意区分search()与match()，其实我一般用search更多**
 
-### 具体使用
+<br>
 
-- search使用
-  ```shell
-  import re
-  output_text = '```json\n[\n\t{"bbox_2d": [359, 170, 580, 326], "label": "a truck number 14 on a snow bank"}\n]\n```'
-  x = re.search('"bbox_2d":',output_text)
-  start = x.start()
-  end = x.end()
-  print(start,end)
-  output_text = output_text[end:]
-  a = output_text.find("[")
-  b = output_text.find("]")
-  output_text = output_text[a:b + 1]
-  print(output_text)
-  x = eval(output_text) # 将字符串当指令使用，eval
-  print(type(x),x)
-  ```
+## 具体使用
 
-- 分组标记()使用
+### search使用
+```py
+import re
+output_text = '```json\n[\n\t{"bbox_2d": [359, 170, 580, 326], "label": "a truck number 14 on a snow bank"}\n]\n```'
+x = re.search('"bbox_2d":',output_text)
+start = x.start()
+end = x.end()
+print(start,end)
+output_text = output_text[end:]
+a = output_text.find("[")
+b = output_text.find("]")
+output_text = output_text[a:b + 1]
+print(output_text)
+x = eval(output_text) # 将字符串当指令使用，eval
+print(type(x),x)
+```
+
+<br>
+
+### 分组标记()使用
 
 ```py
 demo_str2 = '/go.js?v=" + Math.random() + "'
@@ -93,6 +110,47 @@ print(match.group(1))
 go.js
 ```
 
+### 经典的match、search区别，group的作用
+
+```py
+import re
+
+my_str = "username:cjj,email:2871843852@qq.com"
+my_str2 = "121313username:cjj,email:2871843852@qq.com"
+
+info_pattern = re.compile(r"username:(\w*),email:(\d*@.*)")
+
+info_match1 = info_pattern.match(my_str)
+info_match2 = info_pattern.match(my_str2)
+
+if info_match1:
+    print("info_match1 successfully")
+    all_match = info_match1.group(0)
+    user_name = info_match1.group(1)
+    email = info_match1.group(2)
+    print(user_name)
+    print(email)
+    print(all_match)
+
+if info_match2:
+    print("info_match2 successfully")
+    all_match = info_match1.group(0)
+    user_name = info_match1.group(1)
+    email = info_match1.group(2)
+    print(user_name)
+    print(email)
+    print(all_match)
+
+search_match = info_pattern.search(my_str2)
+if search_match:
+    print("search_match successfully")
+    all_match = info_match1.group(0)
+    user_name = info_match1.group(1)
+    email = info_match1.group(2)
+    print(user_name)
+    print(email)
+    print(all_match)
+```
 
 ## 后记
 
