@@ -4,12 +4,16 @@
 
 想开发一台高性能web服务器，发现数据库这部分的知识空白，便学习一下
 
+<br>
+
 ## 目录
 
 [安装](#mysql数据库安装)  
 [基本使用](#mysql数据库基本使用)  
 [cmake使用sql](#cmake使用sql)  
 [参考](#参考)  
+
+<br>
 
 ## mysql数据库安装
 
@@ -18,7 +22,7 @@
 Linux cjj-HKF-WXX 6.8.0-65-generic #68~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 15 18:06:34 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-下面是安装流程。
+### mysql服务安装
 
 - 更新apt包
   ```shell
@@ -43,6 +47,8 @@ Linux cjj-HKF-WXX 6.8.0-65-generic #68~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Ju
 
 本地安装好MySQL后，系统会自动配置好登陆密码，本地登陆MySQL可以在不输入密码的情况下完成(默认仅能root用户登陆).
 
+### mysql开发包安装
+
 **注意：上面的安装仅是MySQL 服务器程序，不包含开发所需的头文件，为了以后能在c++中调用相关的API，需要安装MySQL的开发包**
 
 ```shell
@@ -58,6 +64,8 @@ find /usr -name "mysql.h" 2>/dev/null
 # 检查库文件
 find /usr -name "libmysqlclient*" 2>/dev/null
 ```
+
+<br>
 
 ## mysql数据库基本使用
 
@@ -212,6 +220,8 @@ find /usr -name "libmysqlclient*" 2>/dev/null
 
 
 
+<br>
+
 ## cmake使用sql
 
 使用前，确保安装了sql的开发包，见[安装](#mysql数据库安装)  
@@ -234,7 +244,7 @@ find /usr -name "libmysqlclient*" 2>/dev/null
   # 全局include，不需要额外target_include_directories
   include_directories(${LIBMYSQLCLIENT_INCLUDE_DIRS})
   ```
-  - 库文件使用
+  - 库文件使用  
   法一，使用find_library() + target_link_libraries()
   ```py
   find_library(LIBMYSQLCLIENT
@@ -281,12 +291,14 @@ find /usr -name "libmysqlclient*" 2>/dev/null
   target_link_libraries(hello PRIVATE ${LIBMYSQLCLIENT_LIBRARIES})
   ```
 
+<br>
+
 ## 参考
 
-https://blog.csdn.net/weixin_45626288/article/details/133220238
+mysql安装：https://blog.csdn.net/weixin_45626288/article/details/133220238
 
-https://blog.csdn.net/weixin_37926734/article/details/127464037
+mysql安装及基本使用：https://blog.csdn.net/weixin_37926734/article/details/127464037
 
-https://blog.csdn.net/fightingXia/article/details/82720973
+mysql使用入门：https://blog.csdn.net/fightingXia/article/details/82720973
 
-https://github.com/jaywcjlove/mysql-tutorial
+mysql-github开源5k教程：https://github.com/jaywcjlove/mysql-tutorial
