@@ -11,7 +11,7 @@
 - **[ssh使用](ssh/readme.md)**            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   last update_date : Aug,13 2025
 - **[input_method](input_method/readme.md)**  &emsp; &emsp; last update_date： Aug,19 2025
 - **[vim配置与技巧](vim/readme.md)**   &emsp;&emsp; &emsp;     last update_date : Apr,10 2025
-- **[git使用指南](git/readme.md)** &emsp;&emsp; &emsp;&emsp; last update_date：Sep,25 2025
+- **[git使用指南](git/readme.md)** &emsp;&emsp; &emsp;&emsp; last update_date：Nov,17 2025
 - **[zsh配置](zsh/readme.md)**     &emsp;&emsp;&emsp;&emsp;&emsp; last update_date : Aug,1 2025
 - **[conda配置](conda/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : Oct,20 2025
 - **[zellij使用](zellij/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp;last update_date : May,23 2025

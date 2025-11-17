@@ -1,14 +1,20 @@
 # git 使用指南
 
+<br>
+
 ## 背景
 
 由于常用功能较为简单，仅记录最近新功能及出现问题的操作.
+
+<br>
 
 ## 目录
 
 [基础知识](#git基础知识)  
 [进阶操作](#git进阶问题)  
 [具体案例](#具体案例)  
+
+<br>
 
 ## git基础知识
 
@@ -262,6 +268,7 @@ git config --global credential.helper store
 [git配置代理](#git配置代理)  
 [clone私有仓库](#clone私有仓库)  
 [导出差异](#导出差异)  
+[git配置用户](#配置用户)
 
 
 ### git本地仓库意外丢失
@@ -420,6 +427,7 @@ git push origin master
 参考文章：
 - https://zhuanlan.zhihu.com/p/672447698
 
+<br>
 
 ### git提交大文件
 
@@ -450,6 +458,8 @@ git提交大文件需要使用git-lfs，参考官网使用： https://git-lfs.co
 成功会出现下面的上传过程
 ![git-lfs上传](images/c.png)
 
+<br>
+
 
 ### git配置代理
 
@@ -467,6 +477,8 @@ git config --list
 # 或者vim ~/.gitconfig
 ```
 
+<br>
+
 ### clone私有仓库
 
 一般而言，私有仓库clone将需要clone的本机ssh公钥放到个人github设置即可clone，如果不行，可以设置token使用https下载.
@@ -482,6 +494,8 @@ git clone https://<token_name>:<token>@github.com/<your_repository>
 git clone https://123:131212@github.com/cuijunjie18/HuaWei-Qwen2.5VL.git
 ```
 
+<br>
+
 ### 导出差异
 
 有时候我们希望比较两次提交的差异，需要导出差异对比文件
@@ -490,3 +504,38 @@ git diff <old-commit-id> <new-commit-id> >> <save_file>
 ```
 
 这样差异文件就存在<save_file>里了
+
+<br>
+
+### 配置用户
+
+有时候我们需要在云端开发机或临时计算机去提交commit，为了让github知道是你的账户提交的，需要设置用户
+
+- 全局永久修改
+  ```shell
+  git config --global user.name "xxx"
+  git config --global user.email "xxx"
+  git config --list # 查看生效
+  ```
+
+- 仅为当前仓库设置
+  ```shell
+  cd /your_dir
+  git config user.name "xxx"
+  git config user.email "xxx"
+  git config --list # 这个无法查看，仅能查看全局的
+
+  # 正确查看方式
+  git config --show-origin user.name
+  git config --show-origin user.email
+  ```
+  注意要user.name与user.email均与github账号上注册的一致，才会算对应用户的commit
+
+- 仅为某次commit设置
+  ```shell
+  git -c user.name="xxx" -c user.email="xxx" commit -m "[test] debug"
+  ```
+
+总结：**github判断贡献机制是email强相关.**
+
+<br>
