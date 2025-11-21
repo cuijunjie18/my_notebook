@@ -1,12 +1,16 @@
 # cmake的配置及使用
 
+<br>
+
 ## 目录
 
 [背景](#背景)  
 [安装](#cmake安装)  
 [cmake模板](#cmake常用模板)  
 [cmake嵌套](#cmake嵌套)  
-[cmake杂技](#cmake杂技)   
+[其他cmake技巧](#cmake技巧)  
+
+<br>  
 
 ## 背景
 
@@ -14,12 +18,16 @@
 
 可参考我在gitee上的学习过程： https://gitee.com/cuijunjie18/cmake-learning  
 
+<br>
+
 ## cmake安装
 
 直接执行下面的指令即可
 ```shell
 sudo apt-get install cmake
 ```
+
+<br>
 
 ## cmake常用模板
 
@@ -159,6 +167,8 @@ target_link_libraries(
 )
 ```
 
+<br>
+
 ## cmake嵌套
 
 为什么需要CMakeLists.txt文件嵌套呢？因为当项目结构、功能过多的时候，如果只用一个CMakeLists.txt的话逻辑就会过长.
@@ -169,9 +179,11 @@ target_link_libraries(
 
 我的理解：当执行到add_subdirectory时，就会进入对应的CMakeLists.txt中进行cmake操作，所以一般使用cmake变量**CMAKE_CURRENT_SOURCE_DIR**
 
-具体简单例子可见：[demo嵌套](demo/ws_new)
+具体简单例子可见：[demo嵌套](demo/ws_new)  
 
-## cmake杂技
+<br>
+
+## cmake技巧
 
 - 设置c++标准
   
@@ -214,6 +226,7 @@ target_link_libraries(
         set (EXE "main" CACHE STRING "dafault name" FORCE)
     endif()
     ```
+
 - 输出调试信息，使用message
   ```cmake
   # 不同样式的信息
@@ -225,6 +238,18 @@ target_link_libraries(
 
 - 头文件、库的查找、使用
   可以[sql的cmake使用](../mysql/readme.md)为具体案例学习
+
+- 添加全部源文件
+  ```cmake
+  # 法一
+  file(GLOB http_src ${SRC_DIR}/http/*.cpp)
+
+  # 法二
+  aux_source_directory(${SRC_DIR}/http http_src)
+  ```
+
+
+<br>
 
 ## 后记
 
