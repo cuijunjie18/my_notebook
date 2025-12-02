@@ -235,6 +235,7 @@ huggingface-mirror： https://hf-mirror.com
 
 ```shell
 git config core.editor vim
+git config --global core.editor vim # 全局配置
 ```
 <br>
 
@@ -246,6 +247,8 @@ git log # 找到要删除记录的前一个记录hash_id
 git rebase -i <hash_id>
 # pick 改为 drop即可
 ```
+
+<br>
 
 ### git配置http免密
 
@@ -268,7 +271,8 @@ git config --global credential.helper store
 [git配置代理](#git配置代理)  
 [clone私有仓库](#clone私有仓库)  
 [导出差异](#导出差异)  
-[git配置用户](#配置用户)
+[git配置用户](#配置用户)  
+[git合并提交](#git合并提交)  
 
 
 ### git本地仓库意外丢失
@@ -542,5 +546,57 @@ git diff <old-commit-id> <new-commit-id> >> <save_file>
   ```
 
 总结：**github判断贡献机制是email强相关.**
+
+<br>
+
+### git合并提交
+
+有时候我们在一个分支上提交了多次琐碎的小提交，想把它们合并成一个提交，则需要我们使用rebase去操作,下面用一个demo流程来演示.
+
+- 背景
+
+  假设我们现在有这么一个历史记录
+  ![rebase_log](images/rebase_1.png)  
+
+  我们需要合并[Test]与[doc]，即把单元测试和文档的提交合并到同一个历史记录.
+
+- rebase操作
+  找到需要合并的历史记录的前一个**Hash_id**，如想合并b8b1e4~d01727为一个提交，则需找到b8b1e4的前一个提交，这里是b41001，执行
+  ```shell
+  rebase -i b41001
+  ```
+
+  或者直接执行
+  ```shell
+  git rebase -i HEAD~2 # 即合并后两个历史提交
+  ```
+  **注意：这里第二条指令等价与第一条的指令，且不能合并后3个，因为rebase操作一定要有一个base，即前一个提交为参考，而这个仓库目前只有3个提交，所以最多合并2个提交.**
+
+- 进入如下界面
+  ![rebase界面](images/rebase_2.png)  
+
+  **注意：这里显示的提交是早提交的在上面，晚提交的在下面；每个人的git默认编辑器可能不同，需要设置，参考[设置git默认编辑器](#git的gui默认编辑器设置)**
+
+- 执行合并操作
+  修改如下
+  ![rebase修改](images/rebase_3.png)  
+  简单解释如下
+  ```vim
+  pick b8b1e14 提交1
+  squash d017275 提交2  # 保留内容但合并到前一个提交
+  ```
+  退出vim，得到合并后的提交信息，退出vim即可完成合并
+  ![rebase合并](images/rebase_4.png)  
+
+- rebase结果查看
+  ![rebase结果](images/result.png)  
+  ![rebase-log](images/rebase_log.png)  
+  发现确实完成了修改
+
+- 提交到远程仓库
+  ```shell
+  git push --force-with-lease origin master  # 比 --force 更安全
+  ```
+  **注意：强制提交到远程仓库可能会影响其他协作者，需要确保提交合并仅发生在自己的dev分支.**
 
 <br>
