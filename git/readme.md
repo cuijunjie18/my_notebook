@@ -437,6 +437,11 @@ git提交大文件需要使用git-lfs，参考官网使用： https://git-lfs.co
   ```shell
   git lfs install
   ```
+  如果上面的无法安装，执行下面的指令后再执行
+  ```shell
+  sudo apt update
+  sudo apt-get install git-lfs
+  ```
 
 - 追踪大文件
   ```shell
