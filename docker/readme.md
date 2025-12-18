@@ -22,6 +22,8 @@ csdn： https://blog.csdn.net/u011278722/article/details/137673353
 
 [设置代理](#无法连接docker-hub)  
 [运行容器](#运行一个容器)  
+[vscode进入docker容器](#vscode进入docker容器)  
+[打包项目](#docker打包项目)  
 
 <br>
 
@@ -109,9 +111,18 @@ docker run hello-world
   ctrl + P,ctrl + Q
   ```
 
+<br>
+
 ### vscode进入docker容器
 
 详见[vscode进入docker容器](vscode进入docker容器.md)
+
+<br>
+
+### docker打包项目
+
+直接参考CSDN：https://blog.csdn.net/feifeiwud/article/details/126636051  
+知乎：https://zhuanlan.zhihu.com/p/707459263
 
 <br>
 
