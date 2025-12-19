@@ -55,7 +55,7 @@ docker run hello-world
   ```
   再次尝试即可.
 
-- 法二：设置镜像站
+- 法二：设置镜像站  
     这边镜像站比较杂，一般推荐阿里云
     ```shell
     sudo vim /etc/docker/daemon.json
@@ -77,6 +77,11 @@ docker run hello-world
     sudo systemctl daemon-reload
     sudo systemctl restart docker
     ```
+
+		查看配置是否生效
+		```shell
+		docker info
+		```
 
 <br>
 
@@ -121,8 +126,14 @@ docker run hello-world
 
 ### docker打包项目
 
-直接参考CSDN：https://blog.csdn.net/feifeiwud/article/details/126636051  
+- 参考教学
+CSDN：https://blog.csdn.net/feifeiwud/article/details/126636051  
 知乎：https://zhuanlan.zhihu.com/p/707459263
+
+- 我的实际项目中的使用
+	[CJJ_Webserver](https://github.com/cuijunjie18/CJJ_webserver)  
+	[docker_flask](https://github.com/cuijunjie18/docker_flask.git)  
+
 
 <br>
 

@@ -6,7 +6,7 @@
 
 **测试成功的版本:**
 
-![测试成功的版本](version.png)  
+![测试成功的版本](images/version.png)  
 
 为vscode 1.97.2
 下载地址：https://update.code.visualstudio.com/1.97.2/win32-x64-user/stable
@@ -23,7 +23,7 @@
 - 打开vscode，进入settings
 - 搜索update，并将mode设置为none，如下
 
-![vscode自动更新](auto_update.png)  
+![vscode自动更新](images/auto_update.png)  
 
 **如果在执行这一步骤的时候，vscode已经自动更新为最新版本，请重新安装旧版本!**
 
