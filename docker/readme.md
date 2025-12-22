@@ -20,7 +20,8 @@ csdn： https://blog.csdn.net/u011278722/article/details/137673353
 
 ## 具体案例
 
-[设置代理](#无法连接docker-hub)  
+[无法连接docker-hub](#无法连接docker-hub)  
+[设置存储路径]()
 [运行容器](#运行一个容器)  
 [vscode进入docker容器](#vscode进入docker容器)  
 [打包项目](#docker打包项目)  
@@ -85,7 +86,31 @@ docker run hello-world
 
 <br>
 
-### 运行一个容器
+### 设置存储路径
+
+- 打开配置文件
+  ```shell
+  sudo vim /etc/docker/daemon.json
+  ```
+
+- 添加配置
+  ```vim
+  {
+    "data-root": "/new/docker/path"
+  }
+  ```
+
+- 创建目录、重启docker
+  ```shell
+  sudo mkdir -p /new/docker/path # 注意：可能要从/var/lib/docker/迁移原有数据
+  sudo systemctl daemon-reload
+  sudo systemctl restart docker
+  docker info # 查看配置是否生效
+  ```
+
+<br>
+
+### 运行容器
 
 - 查看可用的镜像
   ```shell
