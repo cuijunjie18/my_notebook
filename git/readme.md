@@ -267,12 +267,14 @@ git config --global credential.helper store
 [git本地仓库意外丢失](#git本地仓库意外丢失)   
 [git误交大文件](#git误交大文件)    
 [git提交大文件](#git提交大文件)  
+[git使用子模块](#git使用子模块)  
 [git团队协作](#git团队协作pull-request)  
 [git配置代理](#git配置代理)  
 [clone私有仓库](#clone私有仓库)  
 [导出差异](#导出差异)  
 [git配置用户](#配置用户)  
 [git合并提交](#git合并提交)  
+
 
 
 ### git本地仓库意外丢失
@@ -380,6 +382,12 @@ git push origin master
 参考文章：
 - https://xmanyou.com/how-to-revert-commit-with-large-file/
 - https://medium.com/analytics-vidhya/tutorial-removing-large-files-from-git-78dbf4cf83a
+
+<br>
+
+### git使用子模块
+
+参考：https://www.cnblogs.com/shangguancn/p/18816262
 
 <br>
 
