@@ -27,6 +27,7 @@
 - **[docker使用](docker/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Dec,26 2025
 - **[gdb使用](gdb/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Nov,6 2025
 - **[gcovr使用](gcovr/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Nov,5 2025
+- **[conan使用](conan/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Dec,29 2025
 - **[未分类](others/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Oct,13 2025
 
 ### 后话
