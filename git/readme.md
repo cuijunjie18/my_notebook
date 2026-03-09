@@ -80,6 +80,7 @@
 [git默认GUI](#git的gui默认编辑器设置)  
 [git删除本地历史记录](#git-删除本地历史记录)    
 [git使用http相关操作免密](#git配置http免密)  
+[git cherry-pick使用](#git-cherry-pick使用)  
 
 <br>
 
@@ -259,6 +260,19 @@ git config --global credential.helper store
 ```
 
 <br>
+
+### git cherry-pick使用
+
+作用：合并对应分支的commit-id到当前分支，而非最新commit-id
+
+```shell
+git cherry-pick <commit-id>
+git cherry-pick <branch> # 如果是分支名，则默认合并最新的commit-id
+```
+
+<br>
+
+
 
 ## 具体案例
 
