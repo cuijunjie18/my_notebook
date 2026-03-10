@@ -167,6 +167,51 @@ target_link_libraries(
 )
 ```
 
+三、库编译、安装模版
+
+```cmake
+cmake_minimum_required(VERSION 3.8)
+
+project(Test)
+
+# 已经搜索了目录下的所有源文件，不能再${INC}/hello.hpp,因为已经包含了
+aux_source_directory(${PROJECT_SOURCE_DIR}/src SRC) # 源码路径(待生成库的源文件)
+aux_source_directory(${PROJECT_SOURCE_DIR}/include INC) # 头文件路径
+
+MESSAGE("This is the source_dir ${PROJECT_SOURCE_DIR}")
+
+# 添加头文件路径(如果不加，默认不清楚)
+# 添加了头文路径件才能正确生成库(库源码里导入了头文件)，才能正确安装
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+# 添加要生成的库
+add_library(hello_static STATIC ${SRC})
+add_library(hello_shared SHARED ${SRC})
+
+# 设置库的名称
+set_target_properties(hello_static PROPERTIES OUTPUT_NAME "hello") # 静态,实际生成的名称为libhello.a
+set_target_properties(hello_shared PROPERTIES OUTPUT_NAME "hello") # 动态，libhello.so
+
+# 设置库的生成位置
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
+
+# 更改默认安装位置
+set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../install)
+
+# 安装库
+install(TARGETS
+    hello_static hello_shared
+    LIBRARY DESTINATION ${PROJECT_NAME}/lib
+    ARCHIVE DESTINATION ${PROJECT_NAME}/lib
+)
+
+# 安装头文件
+install(FILES
+    include/hello.hpp
+    DESTINATION ${PROJECT_NAME}/include
+)
+```
+
 <br>
 
 ## cmake嵌套
@@ -246,6 +291,62 @@ target_link_libraries(
 
   # 法二
   aux_source_directory(${SRC_DIR}/http http_src)
+  ```
+
+- install的使用
+  ```cmake
+  # 安装由cmake过程中生成的文件，即target，会根据目标的类型自动识别到对应的路径
+  install(TARGETS <A> <B> <C> <D>
+        LIBRARY DESTINATION <path_1>    # 动态库
+        ARCHIVE DESTINATION <path_2>    # 静态库
+        INCLUDES DESTINATION <path_3>   # 头文件
+        RUNTIME DESTINATION <path_4>    # 可执行文件
+  )
+
+  install(FILES <file_a_path>
+        DESTINATION <install_path>  # 直接指定路径
+  )
+  ```
+
+  安装的时候再进入build目录执行下面指令即可
+  ```shell
+  make install
+  ```
+
+  注意：安装路径可能不是全局的，是相对的，比如在项目根目录下设置的相对路径，进入build下安装则相对build目录而言了，下面有个例子
+  ```cmake
+  cmake_minimum_required(VERSION 3.10)
+  project(Demo)
+  
+  SET(CMAKE_CXX_STANDARD 17)
+  SET(CMAKE_CXX_STANDARD_REQUIRED ON)
+  set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+  
+  include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+  
+  add_library(
+      my_math
+      SHARED
+      ${CMAKE_CURRENT_SOURCE_DIR}/my_math.cpp   # 这里是相对当前的cmake，但是安装后是相对build了
+  )
+  
+  add_executable(
+      demo
+      ${CMAKE_CURRENT_SOURCE_DIR}/demo.cpp
+  )
+  
+  install(TARGETS my_math
+      LIBRARY DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/lib
+  )
+  
+  install(FILES
+      ${CMAKE_CURRENT_SOURCE_DIR}/my_math.h
+      DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/include
+  )
+  
+  install(TARGETS demo
+      RUNTIME DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin
+  )
   ```
 
 
