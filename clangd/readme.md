@@ -10,6 +10,7 @@ clangd官网 : https://clangd.llvm.org/
 [clangd基于cmake-project的使用](#clangd基于cmake-project的使用)  
 [clangd基于ros2-colcon build的使用](#ros2的工程项目colcon-build使用clangd)  
 [clangd基于make-project的使用](#clangd基于make-project的使用)  
+[clangd基于g++等compiler直接编译]()  
 [vscode中clangd插件问题](#vscode-clangd问题)  
 
 <br>
@@ -86,6 +87,15 @@ Bear is packaged for many distributions. Check out your package manager. Or buil
 
 ```shell
 sudo apt-get install bear
+```
+
+<br>
+
+## clangd基于g++等compiler直接编译
+
+直接编译即可，在编译命令前加上bear --
+```shell
+bear -- g++ ......
 ```
 
 <br>

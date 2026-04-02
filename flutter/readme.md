@@ -22,3 +22,6 @@
   flutter run -d <device_id>
   ```
 
+## flutter基本组件
+
+参考: https://juejin.cn/post/7490552080345055232
