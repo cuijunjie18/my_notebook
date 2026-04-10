@@ -284,6 +284,29 @@ install(FILES
 - 头文件、库的查找、使用
   可以[sql的cmake使用](../mysql/readme.md)为具体案例学习
 
+- 库(包)查找的三种方式
+  ```cmake
+  # 1️⃣ 优先 CMake Config（官方推荐，功能完整）
+    find_package(OpenCV 4.5 REQUIRED COMPONENTS core imgproc)
+    target_link_libraries(app PRIVATE opencv_core opencv_imgproc)   
+
+    # 2️⃣ 无 Config 时回退 pkg-config
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(CURL IMPORTED_TARGET REQUIRED libcurl)
+    target_link_libraries(app PRIVATE PkgConfig::CURL)  
+
+    # 3️⃣ 极特殊库：手动定位（不推荐常规使用）
+    find_path(FOO_INCLUDE foo.h PATHS /opt/foo/include)
+    find_library(FOO_LIB foo PATHS /opt/foo/lib)
+    if(FOO_INCLUDE AND FOO_LIB)
+        add_library(foo_lib UNKNOWN IMPORTED)
+        set_target_properties(foo_lib PROPERTIES
+            IMPORTED_LOCATION "${FOO_LIB}"
+            INTERFACE_INCLUDE_DIRECTORIES "${FOO_INCLUDE}")
+        target_link_libraries(app PRIVATE foo_lib)
+    endif()
+  ```
+
 - 添加全部源文件
   ```cmake
   # 法一
