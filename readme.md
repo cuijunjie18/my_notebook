@@ -30,7 +30,7 @@
 - **[conan使用](conan/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Dec,29 2025  
 - **[wsl相关](wsl/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Jan 6, 2025
 - **[Flutter使用](flutter/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Mar,25 2026
-- **[未分类](others/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Oct,13 2025
+- **[未分类](others/readme.md)** &emsp;&emsp;&emsp;&emsp;&emsp; last update_date: Apr,20 2026
 
 ### 后话
 
