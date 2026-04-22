@@ -270,6 +270,19 @@ git cherry-pick <commit-id>
 git cherry-pick <branch> # 如果是分支名，则默认合并最新的commit-id
 ```
 
+注意与merge不同，具体如下
+
+当你执行 git cherry-pick <commit-hash> 时，Git 会：
+- 计算该 <commit-hash> 引入的变更差异（即与它父提交的 diff）。
+- 将这个 diff 作为补丁应用到当前 HEAD 指向的提交上。
+
+- 如果应用成功，则创建一个新的提交。
+  - 新提交的内容与源提交相同（变更一致）。
+
+  - 新提交的哈希值不同，因为父提交、时间戳、作者/提交者信息可能改变。
+
+  - 默认会保留原提交的作者信息和提交信息。
+
 <br>
 
 
