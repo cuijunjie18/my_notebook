@@ -22,6 +22,8 @@
 Linux cjj-HKF-WXX 6.8.0-65-generic #68~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 15 18:06:34 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
+Mac安装教程见：https://blog.csdn.net/it_xushixiong/article/details/130567876
+
 ### mysql服务安装
 
 - 更新apt包
