@@ -301,6 +301,7 @@ git cherry-pick <branch> # 如果是分支名，则默认合并最新的commit-i
 [导出差异](#导出差异)  
 [git配置用户](#配置用户)  
 [git合并提交](#git合并提交)  
+[git修改commit信息](#git修改commit信息)
 
 
 
@@ -633,5 +634,25 @@ git diff <old-commit-id> <new-commit-id> >> <save_file>
   git push --force-with-lease origin master  # 比 --force 更安全
   ```
   **注意：强制提交到远程仓库可能会影响其他协作者，需要确保提交合并仅发生在自己的dev分支.**
+
+<br>
+
+### git修改commit信息
+
+- 修改当前提交信息
+```shell
+git commit --amend
+```
+
+- 修改历史提交信息
+```shell
+git rebase -i HEAD~3
+```
+然后把对应的pick改成reword，vim保存退出，然后会自动依次跳出每个commit修改的vim界面，修改对应的提交信息，保存退出即可
+
+最后提交
+```shell
+git push --force-with-lease origin master
+```
 
 <br>
