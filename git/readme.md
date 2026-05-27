@@ -656,3 +656,17 @@ git push --force-with-lease origin master
 ```
 
 <br>
+
+### git查找父历史记录
+
+对于某些大型复杂项目，可能经历过多次merge主分支，然后继续开发，导致通过git tree找某次commit的父commit较为困难，可以使用下面的命令
+
+- 查找父commit
+```shell
+git rev-parse <commit-id>^
+```
+
+- 查找父commit的父commit
+```shell
+git rev-parse <commit-id>^2
+```
