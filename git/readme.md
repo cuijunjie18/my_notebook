@@ -301,7 +301,8 @@ git cherry-pick <branch> # 如果是分支名，则默认合并最新的commit-i
 [导出差异](#导出差异)  
 [git配置用户](#配置用户)  
 [git合并提交](#git合并提交)  
-[git修改commit信息](#git修改commit信息)
+[git修改commit信息](#git修改commit信息)  
+[git查找父历史记录](#git查找父历史记录)
 
 
 
@@ -549,6 +550,12 @@ git diff <old-commit-id> <new-commit-id> >> <save_file>
 ```
 
 这样差异文件就存在<save_file>里了
+
+但是这是全量差异，希望类似提交mr查看的效果，则需要使用
+```shell
+git diff <old-commit-id>...<new-commit-id>
+```
+这样会自动找到共同祖先，然后对比
 
 <br>
 
