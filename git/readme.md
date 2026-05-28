@@ -165,6 +165,13 @@
 git stash # 回去最近提交的状态，并保存当前工作状态
 git stash pop # 回到之前保存的工作状态
 ```
+
+git stash 会把当前工作区和暂存区的修改保存到一个栈（stack）里，这个栈是仓库级别的，不属于任何分支
+```shell
+git stash apply
+```
+这样可以直接应用修改到当前分支
+
 <br>
 
 ### switch操作
