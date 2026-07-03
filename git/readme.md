@@ -309,7 +309,8 @@ git cherry-pick <branch> # 如果是分支名，则默认合并最新的commit-i
 [git配置用户](#配置用户)  
 [git合并提交](#git合并提交)  
 [git修改commit信息](#git修改commit信息)  
-[git查找父历史记录](#git查找父历史记录)
+[git查找父历史记录](#git查找父历史记录)   
+[git撤销commit，保留文件](#git撤销修改)  
 
 
 
@@ -658,6 +659,8 @@ git diff <old-commit-id>...<new-commit-id>
 git commit --amend
 ```
 
+**注意：这里也可以把新修改add到暂存区，然后再执行，效果类似合并提交到当前提交**
+
 - 修改历史提交信息
 ```shell
 git rebase -i HEAD~3
@@ -684,3 +687,33 @@ git rev-parse <commit-id>^
 ```shell
 git rev-parse <commit-id>^2
 ```
+
+<br>
+
+### git撤销修改
+
+有时候commit了一些错误的修改，需要撤销，可以使用下面的命令
+
+- 撤销commit
+```shell
+git reset --hard HEAD^
+```
+**注意：这个命令会永久删除当前提交后的所有修改，确保你不需要这些修改后再执行。**
+
+- 撤销commit，但是保留修改(绿色，即已经add状态)
+```shell
+git reset --soft HEAD^
+```
+**注意：这个命令会保留当前提交后的所有修改，可以继续commit.**
+
+- 撤销commit，保留修改(红色，即未add状态)
+```shell
+git reset --mixed HEAD^
+```
+**注意：这个命令会保留当前提交后的所有修改，可以继续add.**
+
+- 默认reset(红色，未add状态)
+```shell
+git reset HEAD^
+```
+**注意：这个命令会保留当前提交后的所有修改，可以继续add.**
